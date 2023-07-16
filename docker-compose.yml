@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  backend:
+    image: ${DOCKER_REGISTRY-}boardgames
+    build:
+      context: .
+      dockerfile: BoardGames/Dockerfile
+      
+  client:
+    image: client
+    build:
+      context: ./boardgames-client
+      dockerfile: Dockerfile
+  
+  proxy:
+    image: nginx:mainline

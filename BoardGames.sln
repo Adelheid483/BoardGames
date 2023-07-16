@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardGames", "BoardGames\BoardGames.csproj", "{65A87D9E-B896-4926-89FE-0F72D5DA7887}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{05D9C2CB-5857-4DC1-949B-BB2355A01B65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65A87D9E-B896-4926-89FE-0F72D5DA7887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65A87D9E-B896-4926-89FE-0F72D5DA7887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65A87D9E-B896-4926-89FE-0F72D5DA7887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65A87D9E-B896-4926-89FE-0F72D5DA7887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05D9C2CB-5857-4DC1-949B-BB2355A01B65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05D9C2CB-5857-4DC1-949B-BB2355A01B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05D9C2CB-5857-4DC1-949B-BB2355A01B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05D9C2CB-5857-4DC1-949B-BB2355A01B65}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8F1F0488-21E9-42BC-8EC6-ECDE489192DE}
+	EndGlobalSection
+EndGlobal
