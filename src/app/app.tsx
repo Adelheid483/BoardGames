@@ -3,8 +3,8 @@ import { Main } from "./components/main";
 
 export const App = () => {
     return (
-        <div>
+        <div className="container mt-4">
             <Main />
         </div>
-    )
-}
+    );
+};

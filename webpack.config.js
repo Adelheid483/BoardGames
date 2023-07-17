@@ -1,38 +1,47 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    mode: 'development',
-    entry: './src/index.tsx',
-    devtool: 'inline-source-map',
+    mode: "development",
+    entry: "./src/index.tsx",
+    devtool: "inline-source-map",
     output: {
-        path: path.join(__dirname, '/dist'),
-        filename: 'bundle.js'
+        path: path.join(__dirname, "/dist"),
+        filename: "bundle.js",
     },
     devServer: {
         port: 3000,
-        static: './dist',
+        static: "./dist",
     },
     module: {
         rules: [
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                loader: "babel-loader",
             },
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
                 exclude: /node_modules/,
+                use: "ts-loader",
             },
-        ]
+            {
+                test: /\.(css|scss)$/,
+                exclude: /node_modules/,
+                use: ["style-loader", "css-loader", "sass-loader"],
+            },
+            {
+                test: /\.(jpg|png|gif)$/,
+                use: "file-loader",
+            },
+        ],
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
+        extensions: [".tsx", ".ts", ".js"],
     },
-    plugins:[
+    plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html'
-        })
-    ]
-}
+            template: "./src/index.html",
+        }),
+    ],
+};

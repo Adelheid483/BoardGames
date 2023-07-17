@@ -16,7 +16,7 @@ export const Games = () => {
     return (
         <div>
             <h3>Choose your game</h3>
-            <ul>{result}</ul>
+            <ul className="list-group">{result}</ul>
         </div>
     );
 };
