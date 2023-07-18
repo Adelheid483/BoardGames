@@ -1,5 +1,5 @@
 import React from "react";
-import { Games } from "./games";
+import { Games } from "./gameList/games";
 
 export const Main = () => {
     return (

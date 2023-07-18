@@ -1,5 +1,5 @@
 import React from "react";
-import { GameModel } from "../dataModels/gameModel";
+import { GameModel } from "../../dataModels/gameModel";
 
 interface Props {
     game: GameModel;
