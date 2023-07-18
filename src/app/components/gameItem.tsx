@@ -1,8 +1,8 @@
 import React from "react";
-import { Game } from "../dataModels/game";
+import { GameModel } from "../dataModels/gameModel";
 
 interface Props {
-    game: Game;
+    game: GameModel;
 }
 
 export const GameItem = (props: Props) => {
