@@ -1,5 +1,4 @@
 ﻿using BoardGames.Application.Interfaces;
-using BoardGames.Application.Interfaces.Games;
 using BoardGames.Constants;
 using BoardGames.Controllers.Attributes;
 using BoardGames.Domain.DataModels;
@@ -11,14 +10,11 @@ namespace BoardGames.Controllers;
 public class GamesController : ControllerBase
 {
     private readonly IGetGamesList _getGamesList;
-    private readonly IGetTyrantsOfTheUnderdark _getTyrantsOfTheUnderdark;
 
     public GamesController(
-        IGetGamesList getGamesList,
-        IGetTyrantsOfTheUnderdark getTyrantsOfTheUnderdark)
+        IGetGamesList getGamesList)
     {
         _getGamesList = getGamesList;
-        _getTyrantsOfTheUnderdark = getTyrantsOfTheUnderdark;
     }
 
     [HttpGet]
@@ -26,12 +22,5 @@ public class GamesController : ControllerBase
     public List<GameModel> GetGames()
     {
         return _getGamesList.Get();
-    }
-    
-    [HttpGet]
-    [ApiRoute(Routes.Games.TyrantsOfTheUnderdark)]
-    public List<string> GetTyrantsOfTheUnderdark()
-    {
-        return _getTyrantsOfTheUnderdark.Get();
     }
 }

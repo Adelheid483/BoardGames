@@ -7,7 +7,5 @@ public static class Routes
     public static class Games
     {
         public const string List = "games/list";
-        
-        public const string TyrantsOfTheUnderdark = "games/tyrants-of-the-underdark";
     }
 }
