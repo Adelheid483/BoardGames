@@ -119,14 +119,14 @@
           "bin/placeholder/BoardGames.Domain.dll": {}
         }
       },
-      "BoardGames.Infrasructure/1.0.0": {
+      "BoardGames.Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
-          "bin/placeholder/BoardGames.Infrasructure.dll": {}
+          "bin/placeholder/BoardGames.Infrastructure.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BoardGames.Infrasructure.dll": {}
+          "bin/placeholder/BoardGames.Infrastructure.dll": {}
         }
       }
     }
@@ -561,16 +561,16 @@
       "path": "../BoardGames.Domain/BoardGames.Domain.csproj",
       "msbuildProject": "../BoardGames.Domain/BoardGames.Domain.csproj"
     },
-    "BoardGames.Infrasructure/1.0.0": {
+    "BoardGames.Infrastructure/1.0.0": {
       "type": "project",
-      "path": "../BoardGames.Infrasructure/BoardGames.Infrasructure.csproj",
-      "msbuildProject": "../BoardGames.Infrasructure/BoardGames.Infrasructure.csproj"
+      "path": "../BoardGames.Infrastructure/BoardGames.Infrastructure.csproj",
+      "msbuildProject": "../BoardGames.Infrastructure/BoardGames.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "BoardGames.Application >= 1.0.0",
-      "BoardGames.Infrasructure >= 1.0.0",
+      "BoardGames.Infrastructure >= 1.0.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.18.1",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
@@ -606,8 +606,8 @@
             "D:\\STUDY\\Projects\\BoardGames\\BoardGames.Application\\BoardGames.Application.csproj": {
               "projectPath": "D:\\STUDY\\Projects\\BoardGames\\BoardGames.Application\\BoardGames.Application.csproj"
             },
-            "D:\\STUDY\\Projects\\BoardGames\\BoardGames.Infrasructure\\BoardGames.Infrasructure.csproj": {
-              "projectPath": "D:\\STUDY\\Projects\\BoardGames\\BoardGames.Infrasructure\\BoardGames.Infrasructure.csproj"
+            "D:\\STUDY\\Projects\\BoardGames\\BoardGames.Infrastructure\\BoardGames.Infrastructure.csproj": {
+              "projectPath": "D:\\STUDY\\Projects\\BoardGames\\BoardGames.Infrastructure\\BoardGames.Infrastructure.csproj"
             }
           }
         }
