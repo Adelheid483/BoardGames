@@ -1,6 +1,5 @@
 import { GameModel } from "../dataModels/gameModel";
 import { httpGet } from "./requestApi";
-import { TyrantsOfTheUnderdarkModel } from "../dataModels/Games/tyrantsOfTheUnderdarkModel";
 
 const resource = "games";
 
@@ -10,7 +9,7 @@ export async function getGames(): Promise<Array<GameModel>> {
     });
 }
 
-export async function getTyrantsOfTheUnderdark(): Promise<TyrantsOfTheUnderdarkModel> {
+export async function getTyrantsOfTheUnderdark(): Promise<Array<string>> {
     return httpGet({
         url: `${resource}/tyrants-of-the-underdark`,
     });
