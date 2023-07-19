@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardGames", "BoardGames\BoardGames.csproj", "{65A87D9E-B896-4926-89FE-0F72D5DA7887}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardGames.Api", "BoardGames.Api\BoardGames.Api.csproj", "{65A87D9E-B896-4926-89FE-0F72D5DA7887}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{05D9C2CB-5857-4DC1-949B-BB2355A01B65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardGames.Domain", "BoardGames.Domain\BoardGames.Domain.csproj", "{A3D0DA4F-6C00-45CD-99FD-7CDFAE920B28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardGames.Application", "BoardGames.Application\BoardGames.Application.csproj", "{CAF8D901-3153-4035-B6D3-6171C7F3F6F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardGames.Infrasructure", "BoardGames.Infrasructure\BoardGames.Infrasructure.csproj", "{CB161D17-DE30-4ADF-807B-1AFFDA965407}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{05D9C2CB-5857-4DC1-949B-BB2355A01B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05D9C2CB-5857-4DC1-949B-BB2355A01B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05D9C2CB-5857-4DC1-949B-BB2355A01B65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3D0DA4F-6C00-45CD-99FD-7CDFAE920B28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D0DA4F-6C00-45CD-99FD-7CDFAE920B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D0DA4F-6C00-45CD-99FD-7CDFAE920B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D0DA4F-6C00-45CD-99FD-7CDFAE920B28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAF8D901-3153-4035-B6D3-6171C7F3F6F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF8D901-3153-4035-B6D3-6171C7F3F6F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF8D901-3153-4035-B6D3-6171C7F3F6F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF8D901-3153-4035-B6D3-6171C7F3F6F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB161D17-DE30-4ADF-807B-1AFFDA965407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB161D17-DE30-4ADF-807B-1AFFDA965407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB161D17-DE30-4ADF-807B-1AFFDA965407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB161D17-DE30-4ADF-807B-1AFFDA965407}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
