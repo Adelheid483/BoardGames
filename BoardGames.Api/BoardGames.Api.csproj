@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BoardGames.Application\BoardGames.Application.csproj" />
-    <ProjectReference Include="..\BoardGames.Infrasructure\BoardGames.Infrasructure.csproj" />
     <ProjectReference Include="..\BoardGames.Infrastructure\BoardGames.Infrastructure.csproj" />
   </ItemGroup>
 
