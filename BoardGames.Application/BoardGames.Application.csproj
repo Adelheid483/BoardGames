@@ -7,6 +7,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\BoardGames.Domain\BoardGames.Domain.csproj" />
+      <ProjectReference Include="..\BoardGames.Infrastructure\BoardGames.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

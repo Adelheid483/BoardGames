@@ -1,34 +1,20 @@
 ﻿using BoardGames.Application.Interfaces;
-using BoardGames.Domain.DataModels;
+using BoardGames.Application.Interfaces.Repositories;
+using BoardGames.Domain.Entities;
 
 namespace BoardGames.Application.Services;
 
 public class GetGamesList : IGetGamesList
 {
-    public List<GameModel> Get()
+    private readonly IGameRepository _gameRepository;
+
+    public GetGamesList(IGameRepository gameRepository)
     {
-        return new List<GameModel>
-        {
-            new()
-            {
-                Name = "Ticket to Ride",
-                Id = Guid.NewGuid()
-            },
-            new()
-            {
-                Name = "Res Arcana",
-                Id = Guid.NewGuid()
-            },
-            new()
-            {
-                Name = "Tyrants of the Underdark",
-                Id = Guid.NewGuid()
-            },
-            new()
-            {
-                Name = "Brass",
-                Id = Guid.NewGuid()
-            },
-        };
+        _gameRepository = gameRepository;
+    }
+
+    public async Task<List<Game>> Get()
+    {
+        return await _gameRepository.Select();
     }
 }

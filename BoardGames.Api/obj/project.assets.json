@@ -869,7 +869,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "BoardGames.Domain": "1.0.0"
+          "BoardGames.Domain": "1.0.0",
+          "BoardGames.Infrastructure": "1.0.0"
         },
         "compile": {
           "bin/placeholder/BoardGames.Application.dll": {}

@@ -1,8 +1,8 @@
-﻿using BoardGames.Domain.DataModels;
+﻿using BoardGames.Domain.Entities;
 
 namespace BoardGames.Application.Interfaces;
 
 public interface IGetGamesList
 {
-    List<GameModel> Get();
+    Task<List<Game>> Get();
 }

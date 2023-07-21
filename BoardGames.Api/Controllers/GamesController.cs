@@ -1,7 +1,7 @@
 ﻿using BoardGames.Application.Interfaces;
 using BoardGames.Constants;
 using BoardGames.Controllers.Attributes;
-using BoardGames.Domain.DataModels;
+using BoardGames.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BoardGames.Controllers;
@@ -19,7 +19,7 @@ public class GamesController : ControllerBase
 
     [HttpGet]
     [ApiRoute(Routes.Games.List)]
-    public List<GameModel> GetGames()
+    public Task<List<Game>> GetGames()
     {
         return _getGamesList.Get();
     }
