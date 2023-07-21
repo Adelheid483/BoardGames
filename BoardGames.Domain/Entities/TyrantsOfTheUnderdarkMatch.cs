@@ -8,7 +8,7 @@ public class TyrantsOfTheUnderdarkMatch
     
     public Guid PlayerId { get; set; }
     
-    public DateOnly DateMatch { get; set; }
+    public DateTime DateMatch { get; set; }
     
     public int? ControlSites { get; set; }
     
