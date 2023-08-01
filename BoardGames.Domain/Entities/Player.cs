@@ -1,8 +1,6 @@
 ﻿namespace BoardGames.Domain.Entities;
 
-public class Player
+public class Player : Entity
 {
-    public Guid Id { get; set; }
-    
     public string Name { get; set; }
 }
