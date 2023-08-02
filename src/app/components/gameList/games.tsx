@@ -12,7 +12,7 @@ export const Games = () => {
         setGames(await getGames());
     }, []);
 
-    const result = games.map((game) => <GameItem key={game.id} path={GamePaths[game.name]} name={game.name} />);
+    const result = games.map((game, index) => <GameItem key={index} path={GamePaths[game.name]} name={game.name} />);
 
     return (
         <div>
