@@ -1,4 +1,5 @@
 using BoardGames;
+using BoardGames.Application;
 using BoardGames.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(typeof(ApplicationMappingProfile));
 builder.Services.InitializeRepositories();
 builder.Services.InitializeServices();
 

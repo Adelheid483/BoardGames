@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Www99SVqWdmMtSPxfiULzcYPDayksO87YTOi0Va76aVTY2utmWZJ9aaBwLCcc1PdjFGlYmrZkhVfC67atDC6Hw==",
+  "dgSpecHash": "tuQC7l3kruEJA2B/MkCwTXuUtHeL22DlgBspVu1B1pUQt9vA0kV11pF/1zphZy+IiGw5zNle1MJ1dX29o/BSLw==",
   "success": true,
   "projectFilePath": "D:\\STUDY\\Projects\\BoardGames\\BoardGames.Application\\BoardGames.Application.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Alina\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Alina\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Alina\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\Alina\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Alina\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\Alina\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\Alina\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.20\\microsoft.entityframeworkcore.6.0.20.nupkg.sha512",
