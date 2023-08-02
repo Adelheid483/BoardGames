@@ -1,0 +1,17 @@
+D:\STUDY\Projects\BoardGames\BoardGames.Infrastructure\bin\Debug\net6.0\BoardGames.Infrastructure.deps.json
+D:\STUDY\Projects\BoardGames\BoardGames.Infrastructure\bin\Debug\net6.0\BoardGames.Infrastructure.dll
+D:\STUDY\Projects\BoardGames\BoardGames.Infrastructure\bin\Debug\net6.0\BoardGames.Infrastructure.pdb
+D:\STUDY\Projects\BoardGames\BoardGames.Infrastructure\obj\Debug\net6.0\BoardGames.Infrastructure.csproj.AssemblyReference.cache
+D:\STUDY\Projects\BoardGames\BoardGames.Infrastructure\obj\Debug\net6.0\BoardGames.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\STUDY\Projects\BoardGames\BoardGames.Infrastructure\obj\Debug\net6.0\BoardGames.Infrastructure.AssemblyInfoInputs.cache
+D:\STUDY\Projects\BoardGames\BoardGames.Infrastructure\obj\Debug\net6.0\BoardGames.Infrastructure.AssemblyInfo.cs
+D:\STUDY\Projects\BoardGames\BoardGames.Infrastructure\obj\Debug\net6.0\BoardGames.Infrastructure.csproj.CoreCompileInputs.cache
+D:\STUDY\Projects\BoardGames\BoardGames.Infrastructure\obj\Debug\net6.0\BoardGames.Infrastructure.dll
+D:\STUDY\Projects\BoardGames\BoardGames.Infrastructure\obj\Debug\net6.0\refint\BoardGames.Infrastructure.dll
+D:\STUDY\Projects\BoardGames\BoardGames.Infrastructure\obj\Debug\net6.0\BoardGames.Infrastructure.pdb
+D:\STUDY\Projects\BoardGames\BoardGames.Infrastructure\obj\Debug\net6.0\ref\BoardGames.Infrastructure.dll
+D:\STUDY\Projects\BoardGames\BoardGames.Infrastructure\bin\Debug\net6.0\BoardGames.Infrastructure.runtimeconfig.json
+D:\STUDY\Projects\BoardGames\BoardGames.Infrastructure\obj\Debug\net6.0\BoardGames.Infrastructure.genruntimeconfig.cache
+D:\STUDY\Projects\BoardGames\BoardGames.Infrastructure\bin\Debug\net6.0\BoardGames.Domain.dll
+D:\STUDY\Projects\BoardGames\BoardGames.Infrastructure\bin\Debug\net6.0\BoardGames.Domain.pdb
+D:\STUDY\Projects\BoardGames\BoardGames.Infrastructure\obj\Debug\net6.0\BoardGames.Infrastructure.csproj.CopyComplete
