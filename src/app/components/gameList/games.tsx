@@ -3,6 +3,7 @@ import useAsyncEffect from "use-async-effect";
 import { GameModel } from "../../dataModels/gameModel";
 import { getGames } from "../../api/gamesApi";
 import { GameItem } from "./gameItem";
+import { GamePaths } from "../../dictionaries/gamePaths";
 
 export const Games = () => {
     const [games, setGames] = useState<GameModel[]>([]);
@@ -11,7 +12,7 @@ export const Games = () => {
         setGames(await getGames());
     }, []);
 
-    const result = games.map((item) => <GameItem game={item} />);
+    const result = games.map((game) => <GameItem key={game.id} path={GamePaths[game.name]} name={game.name} />);
 
     return (
         <div>

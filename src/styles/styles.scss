@@ -1,1 +1,7 @@
 @import "./node_modules/bootstrap/scss/bootstrap";
+
+.buttons-group {
+  display: flex;
+  width: 15rem;
+  justify-content: space-between;
+}
