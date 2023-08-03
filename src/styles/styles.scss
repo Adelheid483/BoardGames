@@ -1,7 +1,33 @@
 @import "./node_modules/bootstrap/scss/bootstrap";
 
-.buttons-group {
+.title {
+    padding-bottom: 1rem;
+}
+
+.main-paige {
+    .game-item:hover {
+        background-color: lightgrey;
+    }
+}
+
+.tyrants-of-the-underdark {
     display: flex;
-    width: 15rem;
-    justify-content: space-between;
+
+    .table-col {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        & tr {
+            height: 55px;
+        }
+    }
+
+    .sum-field {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 70%;
+        justify-content: space-between;
+    }
 }

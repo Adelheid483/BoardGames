@@ -3,7 +3,7 @@ import { Games } from "./gameList/games";
 
 export const Main = () => {
     return (
-        <div>
+        <div className="main-paige">
             <Games />
         </div>
     );

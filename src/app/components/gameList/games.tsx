@@ -4,6 +4,7 @@ import { GameModel } from "../../dataModels/gameModel";
 import { getGames } from "../../api/gamesApi";
 import { GameItem } from "./gameItem";
 import { GamePaths } from "../../dictionaries/games";
+import { Title } from "../common/title";
 
 export const Games = () => {
     const [games, setGames] = useState<GameModel[]>([]);
@@ -18,7 +19,7 @@ export const Games = () => {
 
     return (
         <div>
-            <h3>Choose your game</h3>
+            <Title title="Choose your game" />
             <ul className="list-group">{result}</ul>
         </div>
     );
