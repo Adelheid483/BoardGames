@@ -1,10 +1,10 @@
 import { httpPost } from "./requestApi";
-import { TyrantsOfTheUnderdarkCountModel } from "../dataModels/tyrantsOfTheUnderdarkCountModel";
+import { TotalCountModel } from "../dataModels/totalCountModel";
 import { serialize } from "object-to-formdata";
 
 const resource = "tyrants-of-the-underdark";
 
-export async function countTyrantsOfTheUnderdarkSet(model: TyrantsOfTheUnderdarkCountModel): Promise<number> {
+export async function countTyrantsOfTheUnderdark(model: TotalCountModel): Promise<number> {
     return httpPost({
         url: `${resource}/count`,
         body: serialize(model),

@@ -2,22 +2,32 @@ import React, { useState } from "react";
 import { CountButton } from "../common/countButton";
 import { useForm } from "react-hook-form";
 import { TyrantsOfTheUnderdarkCountModel } from "../../dataModels/tyrantsOfTheUnderdarkCountModel";
-import { countTyrantsOfTheUnderdarkSet } from "../../api/tyrantsOfTheUnderdarkApi";
+import { countTyrantsOfTheUnderdark } from "../../api/tyrantsOfTheUnderdarkApi";
 
-interface Props {}
-
-export const TyrantsOfTheUnderdarkForm = (props: Props) => {
+export const TyrantsOfTheUnderdarkForm = () => {
     const [totalCount, setTotalCount] = useState(0);
 
-    const { register, handleSubmit } = useForm<TyrantsOfTheUnderdarkCountModel>();
+    const { register, handleSubmit } = useForm<TyrantsOfTheUnderdarkCountModel>({
+        defaultValues: {
+            controlSites: 0,
+            totalControlSites: 0,
+            trophyHall: 0,
+            deck: 0,
+            innerCircleDeck: 0,
+            tokens: 0,
+        },
+    });
 
     const onSubmit = async (data: TyrantsOfTheUnderdarkCountModel) => {
-        setTotalCount(await countTyrantsOfTheUnderdarkSet(data));
+        // @ts-ignore
+        const values: number[] = Object.keys(data).map((key) => data[key]);
+
+        setTotalCount(await countTyrantsOfTheUnderdark({ values: values }));
     };
 
     return (
         <div className="table-col">
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onChange={handleSubmit(onSubmit)}>
                 <table className="table">
                     <tbody>
                         <tr>
@@ -88,10 +98,7 @@ export const TyrantsOfTheUnderdarkForm = (props: Props) => {
                         </tr>
                         <tr>
                             <td>
-                                <div className="sum-field">
-                                    <CountButton />
-                                    <span className="btn-light">{totalCount}</span>
-                                </div>
+                                <div className="total-count">{totalCount}</div>
                             </td>
                         </tr>
                     </tbody>
