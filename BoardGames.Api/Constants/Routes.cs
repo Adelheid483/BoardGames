@@ -12,5 +12,7 @@ public static class Routes
     public static class TyrantsOfTheUnderdark
     {
         public const string Count = "tyrants-of-the-underdark/count";
+        
+        public const string Save = "tyrants-of-the-underdark/save";
     }
 }

@@ -22,4 +22,11 @@ public class TyrantsOfTheUnderdarkController : ControllerBase
     {
         return _counter.Sum(model);
     }
+    
+    [HttpPost]
+    [ApiRoute(Routes.TyrantsOfTheUnderdark.Save)]
+    public Task<int> SaveTyrantsOfTheUnderdark([FromForm] TyrantsOfTheUnderdarkSaveModel model)
+    {
+        return Task.FromResult(10);
+    }
 }
