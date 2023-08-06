@@ -1,4 +1,5 @@
-export interface TyrantsOfTheUnderdarkCountModel {
+export interface TyrantsOfTheUnderdarkMatchModel {
+    playerName: string;
     controlSites: number;
     totalControlSites: number;
     trophyHall: number;

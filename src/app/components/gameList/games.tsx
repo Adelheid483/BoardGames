@@ -19,7 +19,7 @@ export const Games = () => {
 
     return (
         <div>
-            <Title title="Choose your game" />
+            <Title title="Choose your game" hideBackButton />
             <ul className="list-group">{result}</ul>
         </div>
     );

@@ -3,34 +3,16 @@ import React from "react";
 export const TyrantsOfTheUnderdarkCriteria = () => {
     return (
         <div className="table-col">
-            <table className="table">
-                <tbody>
-                    <tr>
-                        <td>Criteria</td>
-                    </tr>
-                    <tr>
-                        <td>Control Sites</td>
-                    </tr>
-                    <tr>
-                        <td>Total Control Sites</td>
-                    </tr>
-                    <tr>
-                        <td>Trophy Hall</td>
-                    </tr>
-                    <tr>
-                        <td>Deck</td>
-                    </tr>
-                    <tr>
-                        <td>Inner Circle Deck</td>
-                    </tr>
-                    <tr>
-                        <td>Tokens</td>
-                    </tr>
-                    <tr>
-                        <td>Total</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div className="criteria-list">
+                <div className="criteria-name criteria-item">Criteria / Player</div>
+                <div className="criteria-name criteria-item">Control Site</div>
+                <div className="criteria-name criteria-item">Total Control Sites</div>
+                <div className="criteria-name criteria-item">Trophy Hal</div>
+                <div className="criteria-name criteria-item">Deck</div>
+                <div className="criteria-name criteria-item">Inner Circle Deck</div>
+                <div className="criteria-name criteria-item">Tokens</div>
+                <div className="criteria-name criteria-item">Total</div>
+            </div>
         </div>
     );
 };

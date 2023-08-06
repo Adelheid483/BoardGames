@@ -2,6 +2,11 @@
 
 .title {
     padding-bottom: 1rem;
+
+    & > div {
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 .main-paige {
@@ -10,22 +15,37 @@
     }
 }
 
-.tyrants-of-the-underdark {
+.game-item {
     display: flex;
 
     .table-col {
         display: flex;
-        flex-direction: column;
-        width: 100%;
 
-        & tr {
+        .criteria-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .criteria-name {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid lightgrey;
+        }
+
+        .criteria-item {
+            width: 150px;
             height: 55px;
+        }
+
+        .match-item {
+            display: flex;
         }
     }
 
-    .total-count {
-        color: blue;
+    .game-buttons {
         display: flex;
-        justify-content: center;
+        width: 500px;
+        justify-content: space-between;
+        margin-top: 1rem;
     }
 }
