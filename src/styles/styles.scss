@@ -9,14 +9,30 @@
     }
 }
 
+button {
+    width: 10rem;
+}
+
+.create-player {
+    display: flex;
+    margin-bottom: 3rem;
+
+    input {
+        margin-right: 1rem;
+    }
+}
+
 .main-paige {
-    .game-item:hover {
+    .game-list-item:hover {
         background-color: lightgrey;
     }
 }
 
 .game-item {
     display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 2rem auto 0;
 
     .table-col {
         display: flex;
@@ -34,7 +50,18 @@
 
         .criteria-item {
             width: 150px;
+            height: 63px;
+
+            &.form-control {
+                height: 55px;
+                margin: 0.5rem;
+            }
+        }
+
+        .total-count {
             height: 55px;
+            border-left: 2px solid grey;
+            padding-left: 1.5rem;
         }
 
         .match-item {
@@ -43,9 +70,16 @@
     }
 
     .game-buttons {
+        position: fixed;
         display: flex;
-        width: 500px;
-        justify-content: space-between;
-        margin-top: 1rem;
+        align-items: center;
+        justify-content: center;
+        top: 100px;
+        left: 0;
+        width: 100vw;
+
+        button {
+            margin-right: 1rem;
+        }
     }
 }

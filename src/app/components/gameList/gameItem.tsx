@@ -10,7 +10,7 @@ export const GameItem = (props: Props) => {
     const path = `/${props.path}`;
 
     return (
-        <li className="game-item list-group-item">
+        <li className="game-list-item list-group-item">
             <Link to={path} className="nav-link">
                 {props.name}
             </Link>

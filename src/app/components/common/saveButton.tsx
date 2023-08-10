@@ -1,3 +1,7 @@
 import React from "react";
 
-export const SaveButton = () => <button className="btn btn-success">Save results</button>;
+interface Props {
+    name: string;
+}
+
+export const SaveButton = (props: Props) => <button className="btn btn-success">{props.name}</button>;
