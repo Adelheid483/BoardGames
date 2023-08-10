@@ -10,11 +10,13 @@ namespace BoardGames.Controllers;
 public class GamesController : ControllerBase
 {
     private readonly IGetGamesList _getGamesList;
+    private readonly IGetGameMatchInfo _getGameMatchInfo;
 
     public GamesController(
-        IGetGamesList getGamesList)
+        IGetGamesList getGamesList, IGetGameMatchInfo getGameMatchInfo)
     {
         _getGamesList = getGamesList;
+        _getGameMatchInfo = getGameMatchInfo;
     }
 
     [HttpGet]
@@ -22,5 +24,12 @@ public class GamesController : ControllerBase
     public Task<List<GameModel>> GetGames()
     {
         return _getGamesList.Get();
+    }
+    
+    [HttpGet]
+    [ApiRoute(Routes.Games.MatchInfo)]
+    public Task<GameMatchInfoModel> GetGameMatchInfo()
+    {
+        return _getGameMatchInfo.Get();
     }
 }

@@ -10,6 +10,7 @@ public static class Initializer
     public static void InitializeServices(this IServiceCollection services)
     {
         services.AddScoped<IGetGamesList, GetGamesList>();
+        services.AddScoped<IGetGameMatchInfo, GetGameMatchInfo>();
         services.AddScoped<ICounter, Counter>();
     }
     
