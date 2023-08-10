@@ -11,7 +11,6 @@ public static class Initializer
     {
         services.AddScoped<IGetGamesList, GetGamesList>();
         services.AddScoped<IGetGameMatchInfo, GetGameMatchInfo>();
-        services.AddScoped<ICounter, Counter>();
     }
     
     public static void InitializeRepositories(this IServiceCollection repositories)
