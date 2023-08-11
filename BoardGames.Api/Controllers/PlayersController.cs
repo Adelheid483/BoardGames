@@ -1,4 +1,4 @@
-﻿using BoardGames.Application.Interfaces;
+﻿using BoardGames.Application.Interfaces.Services;
 using BoardGames.Constants;
 using BoardGames.Controllers.Attributes;
 using BoardGames.Domain.DataModels;

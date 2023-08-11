@@ -4,7 +4,7 @@ public class TyrantsOfTheUnderdarkMatch : Entity
 {
     public Guid GameId { get; set; }
     
-    public string PlayerName { get; set; }
+    public Guid PlayerId { get; set; }
     
     public DateTime DateMatch { get; set; }
     

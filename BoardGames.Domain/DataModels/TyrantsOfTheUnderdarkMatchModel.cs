@@ -2,7 +2,7 @@
 
 public class TyrantsOfTheUnderdarkMatchModel
 {
-    public string PlayerName { get; set; }
+    public Guid PlayerId { get; set; }
     
     public int ControlSites { get; set; }
     

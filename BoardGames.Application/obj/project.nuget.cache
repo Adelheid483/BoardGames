@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tuQC7l3kruEJA2B/MkCwTXuUtHeL22DlgBspVu1B1pUQt9vA0kV11pF/1zphZy+IiGw5zNle1MJ1dX29o/BSLw==",
+  "dgSpecHash": "UEKyQrnM95RZIayuf8HNsd17tl3UhDL6yqt9r/MONc9SS0SRrF37n80fbHWhvqddM4cLydL6b8eB89wrEU1vFA==",
   "success": true,
-  "projectFilePath": "D:\\STUDY\\Projects\\BoardGames\\BoardGames.Application\\BoardGames.Application.csproj",
+  "projectFilePath": "E:\\АЛИНА\\STUDY\\Projects\\BoardGames\\BoardGames.Application\\BoardGames.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alina\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Alina\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

@@ -1,4 +1,4 @@
-﻿using BoardGames.Application.Interfaces;
+﻿using BoardGames.Application.Interfaces.Services;
 using BoardGames.Constants;
 using BoardGames.Controllers.Attributes;
 using BoardGames.Domain.DataModels;
@@ -9,27 +9,27 @@ namespace BoardGames.Controllers;
 [ApiController]
 public class GamesController : ControllerBase
 {
-    private readonly IGetGamesList _getGamesList;
-    private readonly IGetGameMatchInfo _getGameMatchInfo;
+    private readonly IGamesService _gamesService;
+    private readonly IGameMatchesService _gameMatchesService;
 
     public GamesController(
-        IGetGamesList getGamesList, IGetGameMatchInfo getGameMatchInfo)
+        IGamesService gamesService, IGameMatchesService gameMatchesService)
     {
-        _getGamesList = getGamesList;
-        _getGameMatchInfo = getGameMatchInfo;
+        _gamesService = gamesService;
+        _gameMatchesService = gameMatchesService;
     }
 
     [HttpGet]
     [ApiRoute(Routes.Games.List)]
     public Task<List<GameModel>> GetGames()
     {
-        return _getGamesList.Get();
+        return _gamesService.Get();
     }
     
     [HttpGet]
     [ApiRoute(Routes.Games.MatchInfo)]
     public Task<GameMatchInfoModel> GetGameMatchInfo()
     {
-        return _getGameMatchInfo.Get();
+        return _gameMatchesService.Get();
     }
 }

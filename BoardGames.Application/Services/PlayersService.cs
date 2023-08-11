@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using BoardGames.Application.Interfaces;
+using BoardGames.Application.Interfaces.Repositories;
+using BoardGames.Application.Interfaces.Services;
 using BoardGames.Domain.DataModels;
 using BoardGames.Domain.Entities;
 

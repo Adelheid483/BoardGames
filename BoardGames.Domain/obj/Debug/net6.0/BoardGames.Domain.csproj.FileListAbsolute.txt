@@ -10,3 +10,14 @@ D:\STUDY\Projects\BoardGames\BoardGames.Domain\obj\Debug\net6.0\BoardGames.Domai
 D:\STUDY\Projects\BoardGames\BoardGames.Domain\obj\Debug\net6.0\refint\BoardGames.Domain.dll
 D:\STUDY\Projects\BoardGames\BoardGames.Domain\obj\Debug\net6.0\BoardGames.Domain.pdb
 D:\STUDY\Projects\BoardGames\BoardGames.Domain\obj\Debug\net6.0\ref\BoardGames.Domain.dll
+E:\АЛИНА\STUDY\Projects\BoardGames\BoardGames.Domain\bin\Debug\net6.0\BoardGames.Domain.deps.json
+E:\АЛИНА\STUDY\Projects\BoardGames\BoardGames.Domain\bin\Debug\net6.0\BoardGames.Domain.dll
+E:\АЛИНА\STUDY\Projects\BoardGames\BoardGames.Domain\bin\Debug\net6.0\BoardGames.Domain.pdb
+E:\АЛИНА\STUDY\Projects\BoardGames\BoardGames.Domain\obj\Debug\net6.0\BoardGames.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\АЛИНА\STUDY\Projects\BoardGames\BoardGames.Domain\obj\Debug\net6.0\BoardGames.Domain.AssemblyInfoInputs.cache
+E:\АЛИНА\STUDY\Projects\BoardGames\BoardGames.Domain\obj\Debug\net6.0\BoardGames.Domain.AssemblyInfo.cs
+E:\АЛИНА\STUDY\Projects\BoardGames\BoardGames.Domain\obj\Debug\net6.0\BoardGames.Domain.csproj.CoreCompileInputs.cache
+E:\АЛИНА\STUDY\Projects\BoardGames\BoardGames.Domain\obj\Debug\net6.0\BoardGames.Domain.dll
+E:\АЛИНА\STUDY\Projects\BoardGames\BoardGames.Domain\obj\Debug\net6.0\refint\BoardGames.Domain.dll
+E:\АЛИНА\STUDY\Projects\BoardGames\BoardGames.Domain\obj\Debug\net6.0\BoardGames.Domain.pdb
+E:\АЛИНА\STUDY\Projects\BoardGames\BoardGames.Domain\obj\Debug\net6.0\ref\BoardGames.Domain.dll

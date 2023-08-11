@@ -1,4 +1,4 @@
-﻿namespace BoardGames.Application.Interfaces.Repositories;
+namespace BoardGames.Application.Interfaces.Repositories;
 
 public interface IRepository<T>
 {

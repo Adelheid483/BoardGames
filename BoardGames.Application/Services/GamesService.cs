@@ -1,16 +1,16 @@
 ﻿using AutoMapper;
-using BoardGames.Application.Interfaces;
 using BoardGames.Application.Interfaces.Repositories;
+using BoardGames.Application.Interfaces.Services;
 using BoardGames.Domain.DataModels;
 
 namespace BoardGames.Application.Services;
 
-public class GetGamesList : IGetGamesList
+public class GamesService : IGamesService
 {
     private readonly IGameRepository _gameRepository;
     private readonly IMapper _mapper;
 
-    public GetGamesList(
+    public GamesService(
         IGameRepository gameRepository,
         IMapper mapper)
     {

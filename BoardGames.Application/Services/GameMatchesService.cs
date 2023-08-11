@@ -1,9 +1,9 @@
-﻿using BoardGames.Application.Interfaces;
+﻿using BoardGames.Application.Interfaces.Services;
 using BoardGames.Domain.DataModels;
 
 namespace BoardGames.Application.Services;
 
-public class GetGameMatchInfo : IGetGameMatchInfo
+public class GameMatchesService : IGameMatchesService
 {
     public Task<GameMatchInfoModel> Get()
     {

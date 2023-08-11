@@ -1,4 +1,4 @@
-﻿using BoardGames.Application.Interfaces;
+﻿using BoardGames.Application.Interfaces.Repositories;
 using BoardGames.Domain.Entities;
 using BoardGames.Infrastructure;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
