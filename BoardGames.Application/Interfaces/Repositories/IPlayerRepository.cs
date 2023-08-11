@@ -2,7 +2,7 @@
 
 namespace BoardGames.Application.Interfaces.Repositories;
 
-public interface IPlayerRepository
+public interface IPlayerRepository : IRepository<Player>
 {
     Task<Player> Add(Player player);
 }
