@@ -1,5 +1,5 @@
 export interface TyrantsOfTheUnderdarkMatchModel {
-    playerName: string;
+    playerId: string;
     controlSites: number;
     totalControlSites: number;
     trophyHall: number;
