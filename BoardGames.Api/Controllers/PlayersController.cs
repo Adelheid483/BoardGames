@@ -23,4 +23,11 @@ public class PlayersController : ControllerBase
     {
         return await _playersService.Create(model);
     }
+    
+    [HttpGet]
+    [ApiRoute(Routes.Players.List)]
+    public Task<List<PlayerModel>> GetPlayers()
+    {
+        return _playersService.Get();
+    }
 }

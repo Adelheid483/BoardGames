@@ -9,6 +9,7 @@ public class ApplicationMappingProfile : Profile
     public ApplicationMappingProfile()
     {
         CreateMap<Game, GameModel>();
+        CreateMap<Player, PlayerModel>();
         CreateMap<PlayerCreateModel, Player>()
             .ForMember(d => d.Name, o => o.MapFrom(s => s.NewPlayer));
     }

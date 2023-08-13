@@ -7,6 +7,8 @@ public static class Routes
     public static class Players
     {
         public const string Create = "players/create";
+        
+        public const string List = "players/list";
     }
     
     public static class Games
