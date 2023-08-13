@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Title } from "../common/title";
 import { useForm } from "react-hook-form";
-import { SaveButton } from "../common/saveButton";
 import { createNewPlayer, getPlayers } from "../../api/playersApi";
 import useAsyncEffect from "use-async-effect";
 import { PlayerCreateModel } from "../../dataModels/playerCreateModel";
@@ -9,6 +8,7 @@ import { PlayerModel } from "../../dataModels/playerModel";
 import { PlayerItem } from "./playerItem";
 import { Modal } from "../common/modal";
 import useModal from "../common/useModal";
+import { Button } from "../common/button";
 
 export const Players = () => {
     const [players, setPlayers] = useState<PlayerModel[]>([]);
@@ -48,7 +48,7 @@ export const Players = () => {
                             required: true,
                         })}
                     />
-                    <SaveButton name="Add Player" />
+                    <Button class="btn-success" children="Save" />
                 </form>
                 <button onClick={loadPlayers} className="btn btn-primary">
                     Load all Players

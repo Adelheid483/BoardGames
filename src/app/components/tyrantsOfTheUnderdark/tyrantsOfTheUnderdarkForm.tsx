@@ -3,10 +3,8 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { TyrantsOfTheUnderdarkMatchModel } from "../../dataModels/tyrantsOfTheUnderdarkMatchModel";
 import { saveTyrantsOfTheUnderdark } from "../../api/tyrantsOfTheUnderdarkApi";
 import { Constants } from "../../../static/constants";
-import { SaveButton } from "../common/saveButton";
-import { PlayerActionButton } from "../common/playerActionButton";
-import { ResetButton } from "../common/resetButton";
 import { getGameMatchInfo } from "../../api/gamesApi";
+import { Button } from "../common/button";
 
 interface FormModel {
     matches: TyrantsOfTheUnderdarkMatchModel[];
@@ -62,17 +60,23 @@ export const TyrantsOfTheUnderdarkForm = () => {
         <div className="table-col">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="game-buttons">
-                    <SaveButton name="Save Match" />
-                    <ResetButton onClick={() => reset()} />
-                    <PlayerActionButton
-                        name="Add Player"
+                    <Button class="btn-success" children="Save" />
+                    <Button class="btn-outline-primary" onClick={() => reset()} children="Reset Match" />
+                    <Button
+                        class="btn-outline-secondary"
                         onClick={() => append(defaultMatch)}
-                        isShown={fields.length === Constants.minNumPlayers || fields.length < Constants.maxNumPlayers}
+                        children="Add Player"
+                        disabled={
+                            !(fields.length === Constants.minNumPlayers || fields.length < Constants.maxNumPlayers)
+                        }
                     />
-                    <PlayerActionButton
-                        name="Remove Player"
+                    <Button
+                        class="btn-outline-secondary"
                         onClick={() => remove(fields.length - 1)}
-                        isShown={fields.length === Constants.maxNumPlayers || fields.length > Constants.minNumPlayers}
+                        children="Remove Player"
+                        disabled={
+                            !(fields.length === Constants.maxNumPlayers || fields.length > Constants.minNumPlayers)
+                        }
                     />
                 </div>
                 <div className="match-item">
