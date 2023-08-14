@@ -1,10 +1,10 @@
 import React from "react";
 import { useForm, useFieldArray } from "react-hook-form";
-import { TyrantsOfTheUnderdarkMatchModel } from "../../dataModels/tyrantsOfTheUnderdarkMatchModel";
-import { saveTyrantsOfTheUnderdark } from "../../api/tyrantsOfTheUnderdarkApi";
-import { Constants } from "../../../static/constants";
-import { getGameMatchInfo } from "../../api/gamesApi";
-import { Button } from "../common/button";
+import { TyrantsOfTheUnderdarkMatchModel } from "../../../dataModels/tyrantsOfTheUnderdarkMatchModel";
+import { saveTyrantsOfTheUnderdark } from "../../../api/tyrantsOfTheUnderdarkApi";
+import { Constants } from "../../../../static/constants";
+import { getGameMatchInfo } from "../../../api/gamesApi";
+import { Button } from "../../common/button";
 
 interface FormModel {
     matches: TyrantsOfTheUnderdarkMatchModel[];
@@ -41,6 +41,9 @@ export const TyrantsOfTheUnderdarkForm = () => {
         control,
     });
 
+    const enableAddBtn = fields.length === Constants.minNumPlayers || fields.length < Constants.maxNumPlayers;
+    const enableRemoveBtn = fields.length === Constants.maxNumPlayers || fields.length > Constants.minNumPlayers;
+
     const onSubmit = async (data: FormModel) => {
         const info = await getGameMatchInfo();
 
@@ -57,29 +60,25 @@ export const TyrantsOfTheUnderdarkForm = () => {
     };
 
     return (
-        <div className="table-col">
+        <div className="game-match-block">
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="game-buttons">
-                    <Button class="btn-success" children="Save" />
-                    <Button class="btn-outline-primary" onClick={() => reset()} children="Reset Match" />
+                <div className="game-match-buttons w-100 position-fixed start-0">
+                    <button className="btn btn-success me-3">Save</button>
+                    <Button class="btn-outline-primary me-3" onClick={() => reset()} children="Reset Match" />
                     <Button
-                        class="btn-outline-secondary"
+                        class="btn-outline-secondary me-3"
                         onClick={() => append(defaultMatch)}
                         children="Add Player"
-                        disabled={
-                            !(fields.length === Constants.minNumPlayers || fields.length < Constants.maxNumPlayers)
-                        }
+                        disabled={!enableAddBtn}
                     />
                     <Button
                         class="btn-outline-secondary"
                         onClick={() => remove(fields.length - 1)}
                         children="Remove Player"
-                        disabled={
-                            !(fields.length === Constants.maxNumPlayers || fields.length > Constants.minNumPlayers)
-                        }
+                        disabled={!enableRemoveBtn}
                     />
                 </div>
-                <div className="match-item">
+                <div className="game-match-col">
                     {fields.map((field, index) => (
                         <div key={field.id}>
                             <input
@@ -91,7 +90,6 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                 type="number"
                                 name="controlSites"
                                 className="form-control criteria-item"
-                                placeholder="0"
                                 {...register(`matches.${index}.controlSites` as const, {
                                     valueAsNumber: true,
                                     required: true,
@@ -101,7 +99,6 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                 type="number"
                                 name="totalControlSites"
                                 className="form-control criteria-item"
-                                placeholder="0"
                                 {...register(`matches.${index}.totalControlSites` as const, {
                                     valueAsNumber: true,
                                     required: true,
@@ -111,7 +108,6 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                 type="number"
                                 name="trophyHall"
                                 className="form-control criteria-item"
-                                placeholder="0"
                                 {...register(`matches.${index}.trophyHall` as const, {
                                     valueAsNumber: true,
                                     required: true,
@@ -121,7 +117,6 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                 type="number"
                                 name="deck"
                                 className="form-control criteria-item"
-                                placeholder="0"
                                 {...register(`matches.${index}.deck` as const, {
                                     valueAsNumber: true,
                                     required: true,
@@ -131,7 +126,6 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                 type="number"
                                 name="innerCircleDeck"
                                 className="form-control criteria-item"
-                                placeholder="0"
                                 {...register(`matches.${index}.innerCircleDeck` as const, {
                                     valueAsNumber: true,
                                     required: true,
@@ -141,13 +135,12 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                 type="number"
                                 name="tokens"
                                 className="form-control criteria-item"
-                                placeholder="0"
                                 {...register(`matches.${index}.tokens` as const, {
                                     valueAsNumber: true,
                                     required: true,
                                 })}
                             />
-                            <span className="total-count criteria-name">X</span>
+                            <span className="game-match-total-count ps-3 criteria-name">X</span>
                         </div>
                     ))}
                 </div>

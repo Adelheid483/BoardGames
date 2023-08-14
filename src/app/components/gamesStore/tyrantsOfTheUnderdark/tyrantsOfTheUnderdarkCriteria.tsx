@@ -2,7 +2,7 @@ import React from "react";
 
 export const TyrantsOfTheUnderdarkCriteria = () => {
     return (
-        <div className="table-col">
+        <div className="game-match-block">
             <div className="criteria-list">
                 <div className="criteria-name criteria-item">Criteria / Player</div>
                 <div className="criteria-name criteria-item">Control Site</div>

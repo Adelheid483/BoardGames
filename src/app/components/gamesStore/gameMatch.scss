@@ -1,0 +1,45 @@
+.game-match {
+    display: flex;
+    justify-content: center;
+
+    .game-match-block {
+        display: flex;
+
+        .criteria-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .criteria-name {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid lightgrey;
+        }
+
+        .criteria-item {
+            width: 150px;
+            height: 63px;
+
+            &.form-control {
+                height: 55px;
+                margin: 0.5rem;
+            }
+        }
+
+        .game-match-col {
+            display: flex;
+
+            .game-match-total-count {
+                height: 55px;
+                border-left: 2px solid grey;
+            }
+        }
+    }
+
+    .game-match-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 100px;
+    }
+}

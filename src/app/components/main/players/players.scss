@@ -1,0 +1,15 @@
+.players-section {
+    .players-content {
+        display: flex;
+        justify-content: space-between;
+
+        .add-player-form {
+            display: flex;
+            width: 100%;
+
+            & input.form-control {
+                width: 100%;
+            }
+        }
+    }
+}

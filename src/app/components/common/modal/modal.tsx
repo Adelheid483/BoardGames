@@ -1,7 +1,10 @@
 import React, { ReactNode } from "react";
+import { Button } from "../button";
+import { Title } from "../title";
 
 interface Props {
-    children?: ReactNode;
+    children: ReactNode;
+    title: string;
     isOpen: boolean;
     toggle: () => void;
 }
@@ -12,7 +15,11 @@ export const Modal = (props: Props) => {
             {props.isOpen && (
                 <div className="modal-overlay" onClick={props.toggle}>
                     <div onClick={(e) => e.stopPropagation()} className="modal-box">
-                        {props.children}
+                        <Title title={props.title} />
+                        <div className="modal-content mb-3">{props.children}</div>
+                        <div className="modal-buttons">
+                            <Button class="btn-outline-primary" onClick={props.toggle} children="Close" />
+                        </div>
                     </div>
                 </div>
             )}
