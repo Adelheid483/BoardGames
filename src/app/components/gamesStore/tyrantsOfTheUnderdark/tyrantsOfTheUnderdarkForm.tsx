@@ -5,6 +5,7 @@ import { saveTyrantsOfTheUnderdark } from "../../../api/tyrantsOfTheUnderdarkApi
 import { Constants } from "../../../../static/constants";
 import { getGameMatchInfo } from "../../../api/gamesApi";
 import { Button } from "../../common/button";
+import local from "../../../../static/localization.json";
 
 interface FormModel {
     matches: TyrantsOfTheUnderdarkMatchModel[];
@@ -63,18 +64,18 @@ export const TyrantsOfTheUnderdarkForm = () => {
         <div className="game-match-block">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="game-match-buttons w-100 position-fixed start-0">
-                    <button className="btn btn-success me-3">Save</button>
-                    <Button class="btn-outline-primary me-3" onClick={() => reset()} children="Reset Match" />
+                    <button className="btn btn-success me-3">{local.Save}</button>
+                    <Button class="btn-outline-primary me-3" onClick={() => reset()} children={local.ResetMatch} />
                     <Button
                         class="btn-outline-secondary me-3"
                         onClick={() => append(defaultMatch)}
-                        children="Add Player"
+                        children={local.AddPlayer}
                         disabled={!enableAddBtn}
                     />
                     <Button
                         class="btn-outline-secondary"
                         onClick={() => remove(fields.length - 1)}
-                        children="Remove Player"
+                        children={local.RemovePlayer}
                         disabled={!enableRemoveBtn}
                     />
                 </div>

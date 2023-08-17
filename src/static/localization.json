@@ -1,6 +1,25 @@
 {
+    "AddPlayer": "Add Player",
+    "AllPlayers": "All Players",
+
+    "Close": "Close",
+    "CriteriaPlayer": "Criteria \\ Player",
+    "CreateNewPlayer": "Create new Player",
+    "ChooseYourGame": "Choose your Game",
+
     "DateMatch": "Date Match",
 
+    "EnterName": "Enter name",
+
+    "ResetMatch": "Reset Match",
+    "RemovePlayer": "Remove Player",
+
+    "Save": "Save",
+    "ShowAll": "Show All",
+
+    "TotalCount": "Total Count",
+
+    "TyrantsOfTheUnderdarkTitle": "Tyrants of the Underdark",
     "TyrantsOfTheUnderdark": {
         "ControlSites": "Control Sites",
         "TotalControlSites": "Total Control Sites",

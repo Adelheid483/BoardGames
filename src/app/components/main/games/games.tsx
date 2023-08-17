@@ -5,6 +5,7 @@ import { getGames } from "../../../api/gamesApi";
 import { GameItem } from "./gameItem";
 import { GamePaths } from "../../../dictionaries/games";
 import { Title } from "../../common/title";
+import local from "../../../../static/localization.json";
 
 export const Games = () => {
     const [games, setGames] = useState<GameModel[]>([]);
@@ -19,7 +20,7 @@ export const Games = () => {
 
     return (
         <section className="games-section">
-            <Title title="Choose your game" />
+            <Title title={local.ChooseYourGame} />
             <ul className="list-group">{allGames}</ul>
         </section>
     );
