@@ -13,24 +13,28 @@
         .criteria-name {
             display: flex;
             align-items: center;
-            border-bottom: 1px solid lightgrey;
+            border-bottom: 1px solid #dee2e6;
         }
 
         .criteria-item {
             width: 150px;
-            height: 63px;
+            height: 70px;
+        }
 
-            &.form-control {
-                height: 55px;
-                margin: 0.5rem;
-            }
+        .criteria-item:first-child {
+            height: 90px;
+        }
+
+        .form-control {
+            height: 55px;
+            margin: 1rem auto;
         }
 
         .game-match-col {
             display: flex;
 
             .game-match-total-count {
-                height: 55px;
+                height: 70px;
                 border-left: 2px solid grey;
             }
         }
@@ -41,5 +45,24 @@
         align-items: center;
         justify-content: center;
         top: 100px;
+    }
+
+    .parent:first-child {
+        height: 90px;
+    }
+
+    .parent {
+        height: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .error-validation {
+            position: relative;
+            left: 1rem;
+            top: -1.2rem;
+            font-size: 0.8rem;
+            color: red;
+        }
     }
 }

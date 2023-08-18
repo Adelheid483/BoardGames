@@ -13,9 +13,12 @@
 
     "ResetMatch": "Reset Match",
     "RemovePlayer": "Remove Player",
+    "RequiredPlayerName": "Player name is required",
+    "RequiredValue": "Value is required",
 
     "Save": "Save",
     "ShowAll": "Show All",
+    "SelectPlayer": "Select Player",
 
     "TotalCount": "Total Count",
 
