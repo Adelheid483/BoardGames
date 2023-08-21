@@ -12,5 +12,7 @@ public class ApplicationMappingProfile : Profile
         CreateMap<Player, PlayerModel>();
         CreateMap<PlayerCreateModel, Player>()
             .ForMember(d => d.Name, o => o.MapFrom(s => s.NewPlayer));
+        CreateMap<TyrantsOfTheUnderdarkSaveModel, TyrantsOfTheUnderdarkMatch>()
+            .ForMember(d => d.GameId, o => o.MapFrom(s => s.MatchId));
     }
 }

@@ -25,4 +25,11 @@ public class PlayersService : IPlayersService
         
         return await _playerRepository.Add(player);
     }
+    
+    public async Task<List<PlayerModel>> Get()
+    {
+        var games = await _playerRepository.Select();
+        
+        return _mapper.Map<List<PlayerModel>>(games);
+    }
 }

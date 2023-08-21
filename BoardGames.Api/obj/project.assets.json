@@ -2611,11 +2611,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\АЛИНА\\STUDY\\Projects\\BoardGames\\BoardGames.Api\\BoardGames.Api.csproj",
+      "projectUniqueName": "D:\\STUDY\\Projects\\BoardGames\\BoardGames.Api\\BoardGames.Api.csproj",
       "projectName": "BoardGames.Api",
-      "projectPath": "E:\\АЛИНА\\STUDY\\Projects\\BoardGames\\BoardGames.Api\\BoardGames.Api.csproj",
+      "projectPath": "D:\\STUDY\\Projects\\BoardGames\\BoardGames.Api\\BoardGames.Api.csproj",
       "packagesPath": "C:\\Users\\Alina\\.nuget\\packages\\",
-      "outputPath": "E:\\АЛИНА\\STUDY\\Projects\\BoardGames\\BoardGames.Api\\obj\\",
+      "outputPath": "D:\\STUDY\\Projects\\BoardGames\\BoardGames.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Alina\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2626,17 +2626,18 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\АЛИНА\\STUDY\\Projects\\BoardGames\\BoardGames.Application\\BoardGames.Application.csproj": {
-              "projectPath": "E:\\АЛИНА\\STUDY\\Projects\\BoardGames\\BoardGames.Application\\BoardGames.Application.csproj"
+            "D:\\STUDY\\Projects\\BoardGames\\BoardGames.Application\\BoardGames.Application.csproj": {
+              "projectPath": "D:\\STUDY\\Projects\\BoardGames\\BoardGames.Application\\BoardGames.Application.csproj"
             },
-            "E:\\АЛИНА\\STUDY\\Projects\\BoardGames\\BoardGames.Infrastructure\\BoardGames.Infrastructure.csproj": {
-              "projectPath": "E:\\АЛИНА\\STUDY\\Projects\\BoardGames\\BoardGames.Infrastructure\\BoardGames.Infrastructure.csproj"
+            "D:\\STUDY\\Projects\\BoardGames\\BoardGames.Infrastructure\\BoardGames.Infrastructure.csproj": {
+              "projectPath": "D:\\STUDY\\Projects\\BoardGames\\BoardGames.Infrastructure\\BoardGames.Infrastructure.csproj"
             }
           }
         }
@@ -2685,7 +2686,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }

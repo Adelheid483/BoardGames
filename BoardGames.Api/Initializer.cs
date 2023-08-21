@@ -12,11 +12,13 @@ public static class Initializer
         services.AddScoped<IGamesService, GamesService>();
         services.AddScoped<IGameMatchesService, GameMatchesService>();
         services.AddScoped<IPlayersService, PlayersService>();
+        services.AddScoped<ITyrantsOfTheUnderdarkService, TyrantsOfTheUnderdarkService>();
     }
     
     public static void InitializeRepositories(this IServiceCollection repositories)
     {
         repositories.AddScoped<IGameRepository, GameRepository>();
         repositories.AddScoped<IPlayerRepository, PlayerRepository>();
+        repositories.AddScoped<ITyrantsOfTheUnderdarkRepository, TyrantsOfTheUnderdarkRepository>();
     }
 }

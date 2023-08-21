@@ -13,7 +13,8 @@ public class GamesController : ControllerBase
     private readonly IGameMatchesService _gameMatchesService;
 
     public GamesController(
-        IGamesService gamesService, IGameMatchesService gameMatchesService)
+        IGamesService gamesService,
+        IGameMatchesService gameMatchesService)
     {
         _gamesService = gamesService;
         _gameMatchesService = gameMatchesService;

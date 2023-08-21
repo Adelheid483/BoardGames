@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/LwheSoXzQjvV+oaPegnfricnWR5lACHZIyxeDlGgA2IvXpentR3MFiGDydfV5jNEfjho6hdA+x/9iaTSoxJ9Q==",
+  "dgSpecHash": "VyuCHerg4F4o+hCkYcjzbdys1M37aMFSDZzzGlgsFsLqUsobBjNN6oV44PTLNG93nhxziX6afJbMfXVmK+L12A==",
   "success": true,
-  "projectFilePath": "E:\\АЛИНА\\STUDY\\Projects\\BoardGames\\BoardGames.Infrastructure\\BoardGames.Infrastructure.csproj",
+  "projectFilePath": "D:\\STUDY\\Projects\\BoardGames\\BoardGames.Infrastructure\\BoardGames.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alina\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Alina\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
