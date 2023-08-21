@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 import { TyrantsOfTheUnderdarkMatchModel } from "../../../dataModels/tyrantsOfTheUnderdarkMatchModel";
 import { saveTyrantsOfTheUnderdark } from "../../../api/tyrantsOfTheUnderdarkApi";
-import { Constants } from "../../../../static/constants";
 import { getGameMatchInfo } from "../../../api/gamesApi";
 import { Button } from "../../common/button";
 import local from "../../../../static/localization.json";
@@ -11,6 +10,8 @@ import useAsyncEffect from "use-async-effect";
 import { PlayerModel } from "../../../dataModels/playerModel";
 import { getPlayers } from "../../../api/playersApi";
 import { DevTool } from "@hookform/devtools";
+import { enableAddBtn, enableRemoveBtn, getTotalCount } from "../../../helpers/helpers";
+import { Constants } from "../../../../static/constants";
 
 interface FormModel {
     matches: TyrantsOfTheUnderdarkMatchModel[];
@@ -26,59 +27,50 @@ const defaultMatch = {
     tokens: null as number,
 };
 
-const getTotalCount = (match: TyrantsOfTheUnderdarkMatchModel) => {
-    // @ts-ignore
-    const values = Object.keys(match).map((key) => match[key]);
-    const numberValues = values.filter((item) => typeof item !== "string");
-
-    return numberValues.reduce((total, item) => total + item);
-};
-
 const numberValueValidation = {
     value: true,
     message: local.RequiredValue,
 };
 
 export const TyrantsOfTheUnderdarkForm = () => {
-    const form = useForm<FormModel>({
+    const [players, setPlayers] = useState<PlayerModel[]>([]);
+    const [player, setPlayer] = useState<PlayerModel>();
+    const [totalCount, setTotalCount] = useState<number[]>([]);
+
+    useAsyncEffect(async () => {
+        setPlayers(await getPlayers());
+    }, []);
+
+    const { register, control, handleSubmit, reset, formState } = useForm<FormModel>({
         defaultValues: {
             matches: [defaultMatch, defaultMatch],
         },
     });
-
-    const { register, control, handleSubmit, reset, formState } = form;
-    const { errors } = formState;
 
     const { fields, append, remove } = useFieldArray({
         name: "matches",
         control,
     });
 
-    const [players, setPlayers] = useState<PlayerModel[]>([]);
-    const [player, setPlayer] = useState<PlayerModel>();
-
-    useAsyncEffect(async () => {
-        setPlayers(await getPlayers());
-    }, []);
-
-    const enableAddBtn = fields.length === Constants.minNumPlayers || fields.length < Constants.maxNumPlayers;
-    const enableRemoveBtn = fields.length === Constants.maxNumPlayers || fields.length > Constants.minNumPlayers;
+    const { errors } = formState;
 
     const onSubmit = async (data: FormModel) => {
-        const info = await getGameMatchInfo();
-
-        console.log(data);
+        const matchInfo = await getGameMatchInfo();
+        const totalSum: number[] = [];
 
         for (const match of data.matches) {
-            const totalCount = getTotalCount(match);
+            const matchTotal = getTotalCount(match);
+            totalSum.push(matchTotal);
 
             await saveTyrantsOfTheUnderdark({
                 ...match,
-                matchId: info.matchId,
-                dateMatch: info.dateMatch,
-                totalCount: totalCount,
+                matchId: matchInfo.matchId,
+                dateMatch: matchInfo.dateMatch,
+                totalCount: matchTotal,
             });
         }
+
+        setTotalCount([...totalSum]);
     };
 
     return (
@@ -86,18 +78,25 @@ export const TyrantsOfTheUnderdarkForm = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="game-match-buttons w-100 position-fixed start-0">
                     <button className="btn btn-success me-3">{local.Save}</button>
-                    <Button class="btn-outline-primary me-3" onClick={() => reset()} children={local.ResetMatch} />
+                    <Button
+                        class="btn-outline-primary me-3"
+                        onClick={() => {
+                            reset();
+                            setTotalCount([]);
+                        }}
+                        children={local.ResetMatch}
+                    />
                     <Button
                         class="btn-outline-secondary me-3"
                         onClick={() => append(defaultMatch)}
                         children={local.AddPlayer}
-                        disabled={!enableAddBtn}
+                        disabled={!enableAddBtn(fields.length)}
                     />
                     <Button
                         class="btn-outline-secondary"
                         onClick={() => remove(fields.length - 1)}
                         children={local.RemovePlayer}
-                        disabled={!enableRemoveBtn}
+                        disabled={!enableRemoveBtn(fields.length)}
                     />
                 </div>
                 <table className="table table-striped">
@@ -228,7 +227,10 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                         {errors.matches?.map((player, idx) => idx === index && player.tokens?.message)}
                                     </div>
                                 </td>
-                                <td className="game-match-total-count ps-3 criteria-name">X</td>
+
+                                <td className="game-match-total-count ps-3 criteria-name">
+                                    {totalCount.length === 0 ? Constants.emptyString : totalCount[index]}
+                                </td>
                             </tr>
                         ))}
                     </tbody>

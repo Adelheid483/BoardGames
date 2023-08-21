@@ -4,7 +4,7 @@ import { TyrantsOfTheUnderdarkSaveModel } from "../dataModels/tyrantsOfTheUnderd
 
 const resource = "tyrants-of-the-underdark";
 
-export async function saveTyrantsOfTheUnderdark(model: TyrantsOfTheUnderdarkSaveModel): Promise<number> {
+export async function saveTyrantsOfTheUnderdark(model: TyrantsOfTheUnderdarkSaveModel) {
     return httpPost({
         url: `${resource}/save`,
         body: serialize(model),
