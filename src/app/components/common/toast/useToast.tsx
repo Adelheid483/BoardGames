@@ -13,13 +13,13 @@ export function useToast() {
         setToastModel([...toastModel, options]);
         setTimeout(() => {
             setToastModel((item) => item.slice(1));
-        }, 5000);
+        }, 4000);
     };
 
     const alerts = (
         <section className="toast-overlay">
-            {toastModel.map((t) => (
-                <Toast variant={t.variant}>{t.text}</Toast>
+            {toastModel.map((toast, index) => (
+                <Toast variant={toast.variant} key={index}>{toast.text}</Toast>
             ))}
         </section>
     );
