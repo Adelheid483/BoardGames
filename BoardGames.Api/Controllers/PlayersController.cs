@@ -1,8 +1,8 @@
-﻿using BoardGames.Application.Interfaces.Services;
+﻿using BoardGames.Application.Common;
+using BoardGames.Application.Interfaces.Services;
 using BoardGames.Constants;
 using BoardGames.Controllers.Attributes;
 using BoardGames.Domain.DataModels;
-using BoardGames.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BoardGames.Controllers;
@@ -19,7 +19,7 @@ public class PlayersController : ControllerBase
 
     [HttpPost]
     [ApiRoute(Routes.Players.Create)]
-    public async Task<Player> CreateNewPlayer([FromForm] PlayerCreateModel model)
+    public async Task<Result> CreateNewPlayer([FromForm] PlayerCreateModel model)
     {
         return await _playersService.Create(model);
     }

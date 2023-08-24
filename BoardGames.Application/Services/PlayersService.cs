@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BoardGames.Application.Common;
 using BoardGames.Application.Interfaces.Repositories;
 using BoardGames.Application.Interfaces.Services;
 using BoardGames.Domain.DataModels;
@@ -19,17 +20,25 @@ public class PlayersService : IPlayersService
         _mapper = mapper;
     }
 
-    public async Task<Player> Create(PlayerCreateModel model)
+    public async Task<Result> Create(PlayerCreateModel model)
     {
+        var existingPlayers = await _playerRepository.Select();
+
+        if (existingPlayers.Any(item => item.Name == model.NewPlayer))
+        {
+            return await ResultBuilder.BuildFailed($"Player with the name {model.NewPlayer} is already exists.");
+        }
+
         var player = _mapper.Map<Player>(model);
+        await _playerRepository.Add(player);
         
-        return await _playerRepository.Add(player);
+        return await ResultBuilder.BuildSucceed();
     }
     
     public async Task<List<PlayerModel>> Get()
     {
-        var games = await _playerRepository.Select();
+        var players = await _playerRepository.Select();
         
-        return _mapper.Map<List<PlayerModel>>(games);
+        return _mapper.Map<List<PlayerModel>>(players).OrderBy(player => player.Name).ToList();
     }
 }
