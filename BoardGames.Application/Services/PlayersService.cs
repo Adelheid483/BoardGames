@@ -23,10 +23,12 @@ public class PlayersService : IPlayersService
     public async Task<Result> Create(PlayerCreateModel model)
     {
         var existingPlayers = await _playerRepository.Select();
+        var hasDuplication = existingPlayers.Any(item =>
+            string.Equals(item.Name, model.NewPlayer, StringComparison.InvariantCultureIgnoreCase));
 
-        if (existingPlayers.Any(item => item.Name == model.NewPlayer))
+        if (hasDuplication)
         {
-            return await ResultBuilder.BuildFailed($"Player with the name {model.NewPlayer} is already exists.");
+            return await ResultBuilder.BuildFailed($"Player with the name {model.NewPlayer} is already exists");
         }
 
         var player = _mapper.Map<Player>(model);
