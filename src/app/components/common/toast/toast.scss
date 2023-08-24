@@ -1,0 +1,29 @@
+.toast-overlay {
+    z-index: 1000;
+    width: 100vw;
+    position: fixed;
+    top: 2rem;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.toast-box {
+    background: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.toast-success {
+    box-shadow: 0 1px 20px 5px #198754;
+}
+
+.toast-warning {
+    box-shadow: 0 1px 20px 5px #ffc107;
+}
+
+.toast-danger {
+    box-shadow: 0 1px 20px 5px #dc3545;
+}

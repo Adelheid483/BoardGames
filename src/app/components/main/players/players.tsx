@@ -10,10 +10,20 @@ import { PlayerItem } from "./playerItem";
 import { Modal } from "../../common/modal/modal";
 import { Button } from "../../common/button";
 import local from "../../../../static/localization.json";
+import { useToast } from "../../common/toast/useToast";
+import { ToastVariant } from "../../common/toast/toast";
 
 export const Players = () => {
     const [players, setPlayers] = useState<PlayerModel[]>([]);
     const { isOpen, toggle } = useModal();
+    const { notificationsToasts, createToast } = useToast();
+
+    const showToast = (variant: ToastVariant, message?: string) => {
+        createToast({
+            text: message,
+            variant,
+        });
+    };
 
     const form = useForm<PlayerCreateModel>({});
     const { register, handleSubmit, formState, reset } = form;
@@ -25,7 +35,13 @@ export const Players = () => {
     }, [formState.isSubmitSuccessful, reset]);
 
     const onSubmit = async (data: PlayerCreateModel) => {
-        await createNewPlayer(data);
+        const result = await createNewPlayer(data);
+        if (!result.isSucceeded) {
+            showToast("warning", result.error);
+        }
+        if (result.isSucceeded) {
+            showToast("success");
+        }
     };
 
     const loadPlayers = async () => {
@@ -49,10 +65,12 @@ export const Players = () => {
                             required: true,
                         })}
                     />
-                    <Button class="btn-success me-2" children={local.Save} />
+                    <button className="btn btn-success me-2" children={local.Save} />
                 </form>
                 <Button class="btn-primary" children={local.ShowAll} onClick={loadPlayers} />
             </div>
+
+            {notificationsToasts}
 
             <Modal
                 isOpen={isOpen}
