@@ -73,6 +73,11 @@ export const TyrantsOfTheUnderdarkForm = () => {
         setTotalCount([...totalSum]);
     };
 
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        // @ts-ignore
+        setPlayer(event.target.value as string);
+    };
+
     return (
         <div className="game-match-block">
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -109,6 +114,7 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                         label={local.SelectPlayer}
                                         defaultValue={""}
                                         value={player}
+                                        onChange={handleChange}
                                         className="form-control criteria-item ms-2 me-2"
                                         {...register(`matches.${index}.playerId` as const, {
                                             required: {

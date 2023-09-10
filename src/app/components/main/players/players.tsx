@@ -12,9 +12,11 @@ import { Button } from "../../common/button";
 import local from "../../../../static/localization.json";
 import { useToast } from "../../common/toast/useToast";
 import { ToastVariant } from "../../common/toast/toast";
+import { Loader } from "../../common/loader";
 
 export const Players = () => {
     const [players, setPlayers] = useState<PlayerModel[]>([]);
+    const [loading, setLoading] = useState(false);
     const { isOpen, toggle } = useModal();
     const { notificationsToasts, createToast } = useToast();
 
@@ -45,8 +47,10 @@ export const Players = () => {
     };
 
     const loadPlayers = async () => {
-        setPlayers(await getPlayers());
         toggle();
+        setLoading(true);
+        setPlayers(await getPlayers());
+        setLoading(false);
     };
 
     const allPlayers = players.map((player) => <PlayerItem key={player.id} name={player.name} />);
@@ -76,7 +80,9 @@ export const Players = () => {
                 isOpen={isOpen}
                 toggle={toggle}
                 title={local.AllPlayers}
-                children={<ul className="list-group">{allPlayers}</ul>}
+                children={
+                    loading ? <Loader loading={loading} /> : <ul className="list-group">{allPlayers}</ul>
+                }
             />
         </section>
     );

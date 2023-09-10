@@ -19,7 +19,9 @@ export function useToast() {
     const alerts = (
         <section className="toast-overlay">
             {toastModel.map((toast, index) => (
-                <Toast variant={toast.variant} key={index}>{toast.text}</Toast>
+                <Toast variant={toast.variant} key={index}>
+                    {toast.text}
+                </Toast>
             ))}
         </section>
     );
