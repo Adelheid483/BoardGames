@@ -12,6 +12,7 @@ import { getPlayers } from "../../../api/playersApi";
 import { DevTool } from "@hookform/devtools";
 import { enableAddBtn, enableRemoveBtn, getTotalCount } from "../../../helpers/helpers";
 import { Constants } from "../../../../static/constants";
+import { Loader } from "../../common/loader";
 
 interface FormModel {
     matches: TyrantsOfTheUnderdarkMatchModel[];
@@ -36,6 +37,7 @@ export const TyrantsOfTheUnderdarkForm = () => {
     const [players, setPlayers] = useState<PlayerModel[]>([]);
     const [player, setPlayer] = useState<PlayerModel>();
     const [totalCount, setTotalCount] = useState<number[]>([]);
+    const [loading, setLoading] = useState(false);
 
     useAsyncEffect(async () => {
         setPlayers(await getPlayers());
@@ -55,6 +57,7 @@ export const TyrantsOfTheUnderdarkForm = () => {
     const { errors } = formState;
 
     const onSubmit = async (data: FormModel) => {
+        setLoading(true);
         const matchInfo = await getGameMatchInfo();
         const totalSum: number[] = [];
 
@@ -71,6 +74,7 @@ export const TyrantsOfTheUnderdarkForm = () => {
         }
 
         setTotalCount([...totalSum]);
+        setLoading(false);
     };
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -235,7 +239,13 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                 </td>
 
                                 <td className="game-match-total-count ps-3 criteria-name">
-                                    {totalCount.length === 0 ? Constants.emptyString : totalCount[index]}
+                                    {totalCount.length === 0 && !loading ? (
+                                        Constants.emptyString
+                                    ) : loading ? (
+                                        <Loader loading={loading} />
+                                    ) : (
+                                        totalCount[index]
+                                    )}
                                 </td>
                             </tr>
                         ))}

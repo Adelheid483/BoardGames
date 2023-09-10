@@ -80,9 +80,7 @@ export const Players = () => {
                 isOpen={isOpen}
                 toggle={toggle}
                 title={local.AllPlayers}
-                children={
-                    loading ? <Loader loading={loading} /> : <ul className="list-group">{allPlayers}</ul>
-                }
+                children={loading ? <Loader loading={loading} /> : <ul className="list-group">{allPlayers}</ul>}
             />
         </section>
     );
