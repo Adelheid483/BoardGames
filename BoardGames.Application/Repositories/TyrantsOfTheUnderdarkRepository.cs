@@ -1,4 +1,5 @@
 ﻿using BoardGames.Application.Interfaces.Repositories;
+using BoardGames.Application.Interfaces.Utils;
 using BoardGames.Domain.Entities;
 using BoardGames.Infrastructure;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -8,15 +9,19 @@ namespace BoardGames.Application.Repositories;
 public class TyrantsOfTheUnderdarkRepository : ITyrantsOfTheUnderdarkRepository
 {
     private readonly ApplicationDbContext _applicationDbContext;
+    private readonly ISetEntityIdService _setEntityIdService;
 
-    public TyrantsOfTheUnderdarkRepository(ApplicationDbContext applicationDbContext)
+    public TyrantsOfTheUnderdarkRepository(
+        ApplicationDbContext applicationDbContext,
+        ISetEntityIdService setEntityIdService)
     {
         _applicationDbContext = applicationDbContext;
+        _setEntityIdService = setEntityIdService;
     }
 
     public async Task<TyrantsOfTheUnderdarkMatch> Save(TyrantsOfTheUnderdarkMatch match)
     {
-        SetEntityId(match);
+        _setEntityIdService.Set(match);
         EntityEntry<TyrantsOfTheUnderdarkMatch> result = await _applicationDbContext.TyrantsOfTheUnderdarkMatches.AddAsync(match);
         await _applicationDbContext.SaveChangesAsync();
 
@@ -26,15 +31,5 @@ public class TyrantsOfTheUnderdarkRepository : ITyrantsOfTheUnderdarkRepository
     public Task<List<TyrantsOfTheUnderdarkMatch>> Select()
     {
         throw new NotImplementedException();
-    }
-
-    private void SetEntityId(TyrantsOfTheUnderdarkMatch match)
-    {
-        if (match.Id != default)
-        {
-            return;
-        }
-
-        match.Id = Guid.NewGuid();
     }
 }
