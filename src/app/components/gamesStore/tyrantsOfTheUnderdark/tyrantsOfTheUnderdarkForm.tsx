@@ -3,14 +3,13 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { TyrantsOfTheUnderdarkMatchModel } from "../../../dataModels/tyrantsOfTheUnderdarkMatchModel";
 import { saveTyrantsOfTheUnderdark } from "../../../api/tyrantsOfTheUnderdarkApi";
 import { getGameMatchInfo } from "../../../api/gamesApi";
-import { Button } from "../../common/button";
 import local from "../../../../static/localization.json";
 import { MenuItem, TextField } from "@mui/material";
 import useAsyncEffect from "use-async-effect";
 import { PlayerModel } from "../../../dataModels/playerModel";
 import { getPlayers } from "../../../api/playersApi";
 import { DevTool } from "@hookform/devtools";
-import { enableAddBtn, enableRemoveBtn, getTotalCount } from "../../../helpers/helpers";
+import { getTotalCount } from "../../../helpers/helpers";
 import { Constants } from "../../../../static/constants";
 import { Loader } from "../../common/loader";
 import { ControlsButtons } from "../../common/controlsButtons";
@@ -107,13 +106,13 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                         label={local.SelectPlayer}
                                         defaultValue=""
                                         value={player}
-                                        onChange={handleChange}
                                         className="form-control criteria-item ms-2 me-2"
                                         {...register(`matches.${index}.playerId` as const, {
                                             required: {
                                                 value: true,
                                                 message: local.RequiredPlayerName,
                                             },
+                                            onChange: (e) => handleChange(e),
                                         })}
                                     >
                                         {players.map((item) => (
