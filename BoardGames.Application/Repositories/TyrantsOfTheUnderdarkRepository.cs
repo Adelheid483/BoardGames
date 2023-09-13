@@ -2,6 +2,7 @@
 using BoardGames.Application.Interfaces.Utils;
 using BoardGames.Domain.Entities;
 using BoardGames.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace BoardGames.Application.Repositories;
@@ -30,6 +31,11 @@ public class TyrantsOfTheUnderdarkRepository : ITyrantsOfTheUnderdarkRepository
 
     public Task<List<TyrantsOfTheUnderdarkMatch>> Select()
     {
-        throw new NotImplementedException();
+        return _applicationDbContext.TyrantsOfTheUnderdarkMatches.ToListAsync();
+    }
+    
+    public Task<List<TyrantsOfTheUnderdarkMatch>> SelectById(Guid id)
+    {
+        return _applicationDbContext.TyrantsOfTheUnderdarkMatches.Where(s => s.GameId == id).ToListAsync();
     }
 }
