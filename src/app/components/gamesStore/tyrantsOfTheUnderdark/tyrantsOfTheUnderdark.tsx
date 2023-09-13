@@ -8,7 +8,7 @@ export const TyrantsOfTheUnderdark = () => {
     return (
         <section>
             <Title title={local.TyrantsOfTheUnderdarkTitle} showBackButton />
-            <div className="game-match mt-5">
+            <div className="game-match d-flex justify-content-center mt-5">
                 <TyrantsOfTheUnderdarkCriteria />
                 <TyrantsOfTheUnderdarkForm />
             </div>

@@ -1,12 +1,17 @@
 @import "node_modules/bootstrap/scss/bootstrap";
+@import "variables";
 @import "../app/components/main/games/games";
 @import "../app/components/common/modal/modal";
 @import "../app/components/common/toast/toast";
-@import "../app/components/common/title";
-@import "../app/components/main/players/players";
+@import "../app/components/common/common";
 @import "../app/components/gamesStore/gameMatch";
 
 button.btn {
     min-width: 130px;
     min-height: 100%;
+}
+
+.css-6hp17o-MuiList-root-MuiMenu-list {
+    height: 250px;
+    overflow-y: scroll;
 }

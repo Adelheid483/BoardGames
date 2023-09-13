@@ -7,8 +7,8 @@ interface Props {
 }
 
 export const Title = (props: Props) => (
-    <div className="title pb-2">
-        <div>
+    <div className="pb-2">
+        <div className="d-flex justify-content-between">
             <h3>{props.title}</h3>
             {props.showBackButton && <BackButton />}
         </div>

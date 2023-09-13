@@ -13,6 +13,7 @@ import { DevTool } from "@hookform/devtools";
 import { enableAddBtn, enableRemoveBtn, getTotalCount } from "../../../helpers/helpers";
 import { Constants } from "../../../../static/constants";
 import { Loader } from "../../common/loader";
+import { ControlsButtons } from "../../common/controlsButtons";
 
 interface FormModel {
     matches: TyrantsOfTheUnderdarkMatchModel[];
@@ -82,41 +83,29 @@ export const TyrantsOfTheUnderdarkForm = () => {
         setPlayer(event.target.value as string);
     };
 
+    const resetHandler = () => {
+        reset();
+        setTotalCount([]);
+    };
+
     return (
-        <div className="game-match-block">
+        <div className="d-flex">
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="game-match-buttons w-100 position-fixed start-0">
-                    <button className="btn btn-success me-3">{local.Save}</button>
-                    <Button
-                        class="btn-outline-primary me-3"
-                        onClick={() => {
-                            reset();
-                            setTotalCount([]);
-                        }}
-                        children={local.ResetMatch}
-                    />
-                    <Button
-                        class="btn-outline-secondary me-3"
-                        onClick={() => append(defaultMatch)}
-                        children={local.AddPlayer}
-                        disabled={!enableAddBtn(fields.length)}
-                    />
-                    <Button
-                        class="btn-outline-secondary"
-                        onClick={() => remove(fields.length - 1)}
-                        children={local.RemovePlayer}
-                        disabled={!enableRemoveBtn(fields.length)}
-                    />
-                </div>
+                <ControlsButtons
+                    resetHandler={resetHandler}
+                    appendHandler={() => append(defaultMatch)}
+                    removeHandler={() => remove(fields.length - 1)}
+                    fieldsLength={fields.length}
+                />
                 <table className="table table-striped">
-                    <tbody className="game-match-col">
+                    <tbody className="d-flex">
                         {fields.map((field, index) => (
                             <tr key={field.id}>
-                                <td className="parent">
+                                <td className="game-match-field">
                                     <TextField
                                         select
                                         label={local.SelectPlayer}
-                                        defaultValue={""}
+                                        defaultValue=""
                                         value={player}
                                         onChange={handleChange}
                                         className="form-control criteria-item ms-2 me-2"
@@ -140,7 +129,7 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                     </div>
                                 </td>
 
-                                <td className="parent">
+                                <td className="game-match-field">
                                     <input
                                         type="number"
                                         name="controlSites"
@@ -157,7 +146,7 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                     </div>
                                 </td>
 
-                                <td className="parent">
+                                <td className="game-match-field">
                                     <input
                                         type="number"
                                         name="totalControlSites"
@@ -174,7 +163,7 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                     </div>
                                 </td>
 
-                                <td className="parent">
+                                <td className="game-match-field">
                                     <input
                                         type="number"
                                         name="trophyHall"
@@ -191,7 +180,7 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                     </div>
                                 </td>
 
-                                <td className="parent">
+                                <td className="game-match-field">
                                     <input
                                         type="number"
                                         name="deck"
@@ -206,7 +195,7 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                     </div>
                                 </td>
 
-                                <td className="parent">
+                                <td className="game-match-field">
                                     <input
                                         type="number"
                                         name="innerCircleDeck"
@@ -223,7 +212,7 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                     </div>
                                 </td>
 
-                                <td className="parent">
+                                <td className="game-match-field">
                                     <input
                                         type="number"
                                         name="tokens"

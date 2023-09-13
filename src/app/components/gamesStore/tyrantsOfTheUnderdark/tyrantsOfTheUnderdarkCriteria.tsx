@@ -3,8 +3,8 @@ import local from "../../../../static/localization.json";
 
 export const TyrantsOfTheUnderdarkCriteria = () => {
     return (
-        <div className="game-match-block">
-            <div className="criteria-list">
+        <div className="d-flex">
+            <div className=" flex-column">
                 <div className="criteria-name criteria-item">{local.CriteriaPlayer}</div>
                 <div className="criteria-name criteria-item">{local.TyrantsOfTheUnderdark.ControlSites}</div>
                 <div className="criteria-name criteria-item">{local.TyrantsOfTheUnderdark.TotalControlSites}</div>

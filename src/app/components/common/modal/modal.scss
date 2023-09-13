@@ -12,15 +12,10 @@
 }
 
 .modal-box {
-    background: white;
+    background: var(--color-white);
     width: 70%;
     padding: 1rem;
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
-
-    .modal-buttons {
-        display: flex;
-        justify-content: flex-end;
-    }
 }

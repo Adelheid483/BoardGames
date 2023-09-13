@@ -56,10 +56,10 @@ export const Players = () => {
     const allPlayers = players.map((player) => <PlayerItem key={player.id} name={player.name} />);
 
     return (
-        <section className="players-section mb-5">
+        <section className="mb-5">
             <Title title={local.CreateNewPlayer} />
-            <div className="players-content">
-                <form onSubmit={handleSubmit(onSubmit)} className="add-player-form">
+            <div className="d-flex justify-content-between">
+                <form onSubmit={handleSubmit(onSubmit)} className="d-flex w-100">
                     <input
                         type="text"
                         name="newPlayer"

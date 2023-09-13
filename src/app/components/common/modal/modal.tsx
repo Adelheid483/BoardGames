@@ -18,7 +18,7 @@ export const Modal = (props: Props) => {
                     <div onClick={(e) => e.stopPropagation()} className="modal-box">
                         <Title title={props.title} />
                         <div className="modal-content mb-3">{props.children}</div>
-                        <div className="modal-buttons">
+                        <div className="d-flex justify-content-end">
                             <Button class="btn-outline-primary" onClick={props.toggle} children={local.Close} />
                         </div>
                     </div>

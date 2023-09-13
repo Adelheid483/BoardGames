@@ -9,7 +9,7 @@
 }
 
 .toast-box {
-    background: white;
+    background: var(--color-white);
     padding: 1rem;
     border-radius: 1rem;
     display: flex;
@@ -17,13 +17,13 @@
 }
 
 .toast-success {
-    box-shadow: 0 1px 20px 5px #198754;
+    box-shadow: 0 1px 20px 5px var(--color-green);
 }
 
 .toast-warning {
-    box-shadow: 0 1px 20px 5px #ffc107;
+    box-shadow: 0 1px 20px 5px var(--color-yellow);
 }
 
 .toast-danger {
-    box-shadow: 0 1px 20px 5px #dc3545;
+    box-shadow: 0 1px 20px 5px var(--color-red);
 }
