@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Toast, ToastVariant } from "./toast";
+import { Toast } from "./toast";
+import { ToastVariant } from "../../../types/types";
 
 interface ToastModel {
     variant: ToastVariant;

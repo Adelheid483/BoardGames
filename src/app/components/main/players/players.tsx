@@ -11,8 +11,8 @@ import { Modal } from "../../common/modal/modal";
 import { Button } from "../../common/button";
 import local from "../../../../static/localization.json";
 import { useToast } from "../../common/toast/useToast";
-import { ToastVariant } from "../../common/toast/toast";
 import { Loader } from "../../common/loader";
+import { ToastVariant } from "../../../types/types";
 
 export const Players = () => {
     const [players, setPlayers] = useState<PlayerModel[]>([]);

@@ -1,5 +1,5 @@
-import { EnumDictionary } from "./enumDictionary";
 import { GameType } from "../enums/gameType";
+import { EnumDictionary } from "../types/types";
 
 export const GamePaths: EnumDictionary<GameType, string> = {
     [GameType.Clank]: "clank",

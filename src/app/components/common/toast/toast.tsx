@@ -3,8 +3,7 @@ import local from "../../../../static/localization.json";
 import CheckCircleOutlineRoundedIcon from "@mui/icons-material/CheckCircleOutlineRounded";
 import ErrorOutlineRoundedIcon from "@mui/icons-material/ErrorOutlineRounded";
 import BlockRoundedIcon from "@mui/icons-material/BlockRounded";
-
-export type ToastVariant = "success" | "danger" | "warning";
+import { ToastVariant } from "../../../types/types";
 
 interface ToastProps {
     variant: ToastVariant;

@@ -1,31 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import useAsyncEffect from "use-async-effect";
-import { GameModel } from "../../../dataModels/gameModel";
-import { getGames } from "../../../api/gamesApi";
 import { GameItem } from "./gameItem";
 import { GamePaths } from "../../../dictionaries/games";
 import { Title } from "../../common/title";
 import local from "../../../../static/localization.json";
 import { Loader } from "../../common/loader";
+import { useTypedSelector } from "../../../helpers/useTypedSelector";
+import { fetchGames } from "../../../store/actions/gamesReducerActions";
+import { useActions } from "../../../helpers/useActions";
 
 export const Games = () => {
-    const [games, setGames] = useState<GameModel[]>([]);
-    const [loading, setLoading] = useState(false);
+    const { games, error, loading } = useTypedSelector((state) => state.games);
+    const { fetchGames } = useActions();
 
     useAsyncEffect(async () => {
-        setLoading(true);
-        setGames(await getGames());
-        setLoading(false);
+        fetchGames();
     }, []);
 
     const allGames = games.map((game, index) => (
         <GameItem key={index} path={GamePaths[game.gameType]} name={game.name} />
     ));
 
+    console.log(allGames);
+
     return (
         <section className="games-section">
             <Title title={local.ChooseYourGame} />
             {loading ? <Loader loading={loading} /> : <ul className="list-group">{allGames}</ul>}
+            {error ?? <h1>{error}</h1>}
         </section>
     );
 };

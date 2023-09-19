@@ -1,5 +1,6 @@
+import { HttpRequestMethod } from "../types/types";
+
 export const apiRootUrl = "https://localhost:44366/api";
-export type HttpRequestMethod = "GET" | "POST" | "PUT" | "DELETE";
 
 export interface RequestOptions<T> {
     url: string;

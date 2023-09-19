@@ -10,6 +10,7 @@
     "DateMatch": "Date Match",
 
     "EnterName": "Enter name",
+    "ErrorLoading": "Oops! Something happened...",
 
     "ResetMatch": "Reset Match",
     "RemovePlayer": "Remove Player",
