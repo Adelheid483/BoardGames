@@ -12,8 +12,7 @@ import local from "../../../../static/localization.json";
 import { useToast } from "../../common/toast/useToast";
 import { Loader } from "../../common/loader";
 import { ToastVariant } from "../../../types/types";
-import { useTypedSelector } from "../../../helpers/useTypedSelector";
-import { useActions } from "../../../helpers/useActions";
+import { useActions, useTypedSelector } from "../../../helpers/reduxHooks";
 
 export const Players = () => {
     const { players, error, loading } = useTypedSelector((state) => state.players);

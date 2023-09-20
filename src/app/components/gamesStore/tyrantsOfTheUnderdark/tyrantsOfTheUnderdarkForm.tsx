@@ -13,9 +13,8 @@ import { getTotalCount } from "../../../helpers/helpers";
 import { Constants } from "../../../../static/constants";
 import { Loader } from "../../common/loader";
 import { ControlsButtons } from "../../common/controlsButtons";
-import { useTypedSelector } from "../../../helpers/useTypedSelector";
-import { useActions } from "../../../helpers/useActions";
 import { Error } from "../../common/error";
+import { useActions, useTypedSelector } from "../../../helpers/reduxHooks";
 
 interface FormModel {
     matches: TyrantsOfTheUnderdarkMatchModel[];

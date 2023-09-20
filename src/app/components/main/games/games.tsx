@@ -5,10 +5,9 @@ import { GamePaths } from "../../../dictionaries/games";
 import { Title } from "../../common/title";
 import local from "../../../../static/localization.json";
 import { Loader } from "../../common/loader";
-import { useTypedSelector } from "../../../helpers/useTypedSelector";
 import { fetchGames } from "../../../store/actions/gamesReducerActions";
-import { useActions } from "../../../helpers/useActions";
 import { Error } from "../../common/error";
+import { useActions, useTypedSelector } from "../../../helpers/reduxHooks";
 
 export const Games = () => {
     const { games, error, loading } = useTypedSelector((state) => state.games);
