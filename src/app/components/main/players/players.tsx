@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import useAsyncEffect from "use-async-effect";
 import useModal from "../../common/modal/useModal";
 import { Title } from "../../common/title";
 import { useForm } from "react-hook-form";
-import { createNewPlayer, getPlayers } from "../../../api/playersApi";
+import { createNewPlayer } from "../../../api/playersApi";
 import { PlayerCreateModel } from "../../../dataModels/playerCreateModel";
-import { PlayerModel } from "../../../dataModels/playerModel";
 import { PlayerItem } from "./playerItem";
 import { Modal } from "../../common/modal/modal";
 import { Button } from "../../common/button";
@@ -13,10 +12,12 @@ import local from "../../../../static/localization.json";
 import { useToast } from "../../common/toast/useToast";
 import { Loader } from "../../common/loader";
 import { ToastVariant } from "../../../types/types";
+import { useTypedSelector } from "../../../helpers/useTypedSelector";
+import { useActions } from "../../../helpers/useActions";
 
 export const Players = () => {
-    const [players, setPlayers] = useState<PlayerModel[]>([]);
-    const [loading, setLoading] = useState(false);
+    const { players, error, loading } = useTypedSelector((state) => state.players);
+    const { fetchPlayers } = useActions();
     const { isOpen, toggle } = useModal();
     const { notificationsToasts, createToast } = useToast();
 
@@ -48,9 +49,7 @@ export const Players = () => {
 
     const loadPlayers = async () => {
         toggle();
-        setLoading(true);
-        setPlayers(await getPlayers());
-        setLoading(false);
+        fetchPlayers();
     };
 
     const allPlayers = players.map((player) => <PlayerItem key={player.id} name={player.name} />);
@@ -80,6 +79,7 @@ export const Players = () => {
                 isOpen={isOpen}
                 toggle={toggle}
                 title={local.AllPlayers}
+                error={error}
                 children={loading ? <Loader loading={loading} /> : <ul className="list-group">{allPlayers}</ul>}
             />
         </section>

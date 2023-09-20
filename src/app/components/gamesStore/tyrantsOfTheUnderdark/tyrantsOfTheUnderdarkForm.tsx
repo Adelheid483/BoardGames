@@ -13,6 +13,9 @@ import { getTotalCount } from "../../../helpers/helpers";
 import { Constants } from "../../../../static/constants";
 import { Loader } from "../../common/loader";
 import { ControlsButtons } from "../../common/controlsButtons";
+import { useTypedSelector } from "../../../helpers/useTypedSelector";
+import { useActions } from "../../../helpers/useActions";
+import { Error } from "../../common/error";
 
 interface FormModel {
     matches: TyrantsOfTheUnderdarkMatchModel[];
@@ -34,13 +37,14 @@ const numberValueValidation = {
 };
 
 export const TyrantsOfTheUnderdarkForm = () => {
-    const [players, setPlayers] = useState<PlayerModel[]>([]);
+    const players = useTypedSelector((state) => state.players);
+    const { fetchPlayers } = useActions();
     const [player, setPlayer] = useState<PlayerModel>();
     const [totalCount, setTotalCount] = useState<number[]>([]);
     const [loading, setLoading] = useState(false);
 
     useAsyncEffect(async () => {
-        setPlayers(await getPlayers());
+        fetchPlayers();
     }, []);
 
     const { register, control, handleSubmit, reset, formState } = useForm<FormModel>({
@@ -115,11 +119,15 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                             onChange: (e) => handleChange(e),
                                         })}
                                     >
-                                        {players.map((item) => (
-                                            <MenuItem value={item.id} key={item.id}>
-                                                {item.name}
-                                            </MenuItem>
-                                        ))}
+                                        {players.error ? (
+                                            <Error errorMessage={players.error} />
+                                        ) : (
+                                            players.players.map((item) => (
+                                                <MenuItem value={item.id} key={item.id}>
+                                                    {item.name}
+                                                </MenuItem>
+                                            ))
+                                        )}
                                     </TextField>
                                     <div className="error-validation">
                                         {errors.matches?.map(

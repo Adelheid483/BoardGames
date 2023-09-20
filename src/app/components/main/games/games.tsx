@@ -8,6 +8,7 @@ import { Loader } from "../../common/loader";
 import { useTypedSelector } from "../../../helpers/useTypedSelector";
 import { fetchGames } from "../../../store/actions/gamesReducerActions";
 import { useActions } from "../../../helpers/useActions";
+import { Error } from "../../common/error";
 
 export const Games = () => {
     const { games, error, loading } = useTypedSelector((state) => state.games);
@@ -27,7 +28,7 @@ export const Games = () => {
         <section className="games-section">
             <Title title={local.ChooseYourGame} />
             {loading ? <Loader loading={loading} /> : <ul className="list-group">{allGames}</ul>}
-            {error ?? <h1>{error}</h1>}
+            {error ?? <Error errorMessage={error} />}
         </section>
     );
 };
