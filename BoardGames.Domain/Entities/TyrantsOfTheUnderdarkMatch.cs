@@ -1,6 +1,6 @@
 ﻿namespace BoardGames.Domain.Entities;
 
-public class TyrantsOfTheUnderdarkMatch : Entity
+public class TyrantsOfTheUnderdarkMatch : Entity, IHasMatchFields
 {
     public Guid GameId { get; set; }
     
