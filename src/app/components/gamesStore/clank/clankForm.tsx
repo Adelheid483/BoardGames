@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
-import { TyrantsOfTheUnderdarkMatchModel } from "../../../dataModels/tyrantsOfTheUnderdarkMatchModel";
-import { saveTyrantsOfTheUnderdark } from "../../../api/tyrantsOfTheUnderdarkApi";
+import { ClankMatchModel } from "../../../dataModels/clankMatchModel";
+import { saveClank } from "../../../api/clankApi";
 import { getGameMatchInfo } from "../../../api/gamesApi";
 import local from "../../../../static/localization.json";
 import { MenuItem, TextField } from "@mui/material";
@@ -16,17 +16,16 @@ import { Error } from "../../common/error";
 import { useActions, useTypedSelector } from "../../../helpers/reduxHooks";
 
 interface FormModel {
-    matches: TyrantsOfTheUnderdarkMatchModel[];
+    matches: ClankMatchModel[];
 }
 
 const defaultMatch = {
     playerId: "",
-    controlSites: null as number,
-    totalControlSites: null as number,
-    trophyHall: null as number,
-    deck: null as number,
-    innerCircleDeck: null as number,
+    artefacts: null as number,
+    prisoners: null as number,
     tokens: null as number,
+    deck: null as number,
+    coins: null as number,
 };
 
 const numberValueValidation = {
@@ -34,7 +33,7 @@ const numberValueValidation = {
     message: local.RequiredValue,
 };
 
-export const TyrantsOfTheUnderdarkForm = () => {
+export const ClankForm = () => {
     const players = useTypedSelector((state) => state.players);
     const { fetchPlayers } = useActions();
     const [player, setPlayer] = useState<PlayerModel>();
@@ -67,7 +66,7 @@ export const TyrantsOfTheUnderdarkForm = () => {
             const matchTotal = getTotalCount(match);
             totalSum.push(matchTotal);
 
-            await saveTyrantsOfTheUnderdark({
+            await saveClank({
                 ...match,
                 matchId: matchInfo.matchId,
                 dateMatch: matchInfo.dateMatch,
@@ -137,16 +136,16 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                 <td className="game-match-field">
                                     <input
                                         type="number"
-                                        name="controlSites"
+                                        name="artefacts"
                                         className="form-control criteria-item ms-2 me-2"
-                                        {...register(`matches.${index}.controlSites` as const, {
+                                        {...register(`matches.${index}.artefacts` as const, {
                                             valueAsNumber: true,
                                             required: numberValueValidation,
                                         })}
                                     />
                                     <div className="error-validation">
                                         {errors.matches?.map(
-                                            (player, idx) => idx === index && player.controlSites?.message
+                                            (player, idx) => idx === index && player.artefacts?.message
                                         )}
                                     </div>
                                 </td>
@@ -154,16 +153,16 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                 <td className="game-match-field">
                                     <input
                                         type="number"
-                                        name="totalControlSites"
+                                        name="prisoners"
                                         className="form-control criteria-item ms-2 me-2"
-                                        {...register(`matches.${index}.totalControlSites` as const, {
+                                        {...register(`matches.${index}.prisoners` as const, {
                                             valueAsNumber: true,
                                             required: numberValueValidation,
                                         })}
                                     />
                                     <div className="error-validation">
                                         {errors.matches?.map(
-                                            (player, idx) => idx === index && player.totalControlSites?.message
+                                            (player, idx) => idx === index && player.prisoners?.message
                                         )}
                                     </div>
                                 </td>
@@ -171,17 +170,15 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                 <td className="game-match-field">
                                     <input
                                         type="number"
-                                        name="trophyHall"
+                                        name="tokens"
                                         className="form-control criteria-item ms-2 me-2"
-                                        {...register(`matches.${index}.trophyHall` as const, {
+                                        {...register(`matches.${index}.tokens` as const, {
                                             valueAsNumber: true,
                                             required: numberValueValidation,
                                         })}
                                     />
                                     <div className="error-validation">
-                                        {errors.matches?.map(
-                                            (player, idx) => idx === index && player.trophyHall?.message
-                                        )}
+                                        {errors.matches?.map((player, idx) => idx === index && player.tokens?.message)}
                                     </div>
                                 </td>
 
@@ -203,32 +200,15 @@ export const TyrantsOfTheUnderdarkForm = () => {
                                 <td className="game-match-field">
                                     <input
                                         type="number"
-                                        name="innerCircleDeck"
+                                        name="coins"
                                         className="form-control criteria-item ms-2 me-2"
-                                        {...register(`matches.${index}.innerCircleDeck` as const, {
+                                        {...register(`matches.${index}.coins` as const, {
                                             valueAsNumber: true,
                                             required: numberValueValidation,
                                         })}
                                     />
                                     <div className="error-validation">
-                                        {errors.matches?.map(
-                                            (player, idx) => idx === index && player.innerCircleDeck?.message
-                                        )}
-                                    </div>
-                                </td>
-
-                                <td className="game-match-field">
-                                    <input
-                                        type="number"
-                                        name="tokens"
-                                        className="form-control criteria-item ms-2 me-2"
-                                        {...register(`matches.${index}.tokens` as const, {
-                                            valueAsNumber: true,
-                                            required: numberValueValidation,
-                                        })}
-                                    />
-                                    <div className="error-validation">
-                                        {errors.matches?.map((player, idx) => idx === index && player.tokens?.message)}
+                                        {errors.matches?.map((player, idx) => idx === index && player.coins?.message)}
                                     </div>
                                 </td>
 

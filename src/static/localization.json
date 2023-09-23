@@ -7,6 +7,15 @@
     "CreateNewPlayer": "Create new Player",
     "ChooseYourGame": "Choose your Game",
 
+    "ClankTitle": "Clank!",
+    "Clank": {
+        "Deck": "Deck",
+        "Coins": "Gold Coins",
+        "Prisoners": "Released Prisoners",
+        "Artefacts": "Artefacts",
+        "Tokens": "Another Tokens"
+    },
+
     "DateMatch": "Date Match",
 
     "EnterName": "Enter name",

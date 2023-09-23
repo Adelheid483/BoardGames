@@ -1,7 +1,5 @@
-import { TyrantsOfTheUnderdarkMatchModel } from "../dataModels/tyrantsOfTheUnderdarkMatchModel";
 import { Constants } from "../../static/constants";
-
-type matchModels = TyrantsOfTheUnderdarkMatchModel;
+import { matchModels } from "../types/types";
 
 export const getTotalCount = (match: matchModels) => {
     // @ts-ignore
