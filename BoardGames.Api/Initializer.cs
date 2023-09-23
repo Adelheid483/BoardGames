@@ -14,8 +14,9 @@ public static class Initializer
         services.AddScoped<IGamesService, GamesService>();
         services.AddScoped<IGameMatchesService, GameMatchesService>();
         services.AddScoped<IPlayersService, PlayersService>();
-        services.AddScoped<ITyrantsOfTheUnderdarkService, TyrantsOfTheUnderdarkService>();
         services.AddScoped<ISetEntityIdService, SetEntityIdService>();
+        services.AddScoped<ITyrantsOfTheUnderdarkService, TyrantsOfTheUnderdarkService>();
+        services.AddScoped<IClankService, ClankService>();
     }
     
     public static void InitializeRepositories(this IServiceCollection repositories)
@@ -23,5 +24,6 @@ public static class Initializer
         repositories.AddScoped<IGameRepository, GameRepository>();
         repositories.AddScoped<IPlayerRepository, PlayerRepository>();
         repositories.AddScoped<ITyrantsOfTheUnderdarkRepository, TyrantsOfTheUnderdarkRepository>();
+        repositories.AddScoped<IClankRepository, ClankRepository>();
     }
 }

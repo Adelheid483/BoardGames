@@ -22,4 +22,9 @@ public static class Routes
     {
         public const string Save = "tyrants-of-the-underdark/save";
     }
+    
+    public static class Clank
+    {
+        public const string Save = "clank/save";
+    }
 }

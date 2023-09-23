@@ -23,7 +23,7 @@ public class ClankRepository : IClankRepository
     public async Task<ClankMatch> Save(ClankMatch match)
     {
         _setEntityIdService.Set(match);
-        EntityEntry<ClankMatch> result = await _applicationDbContext.ClankMatches.AddAsync(match);
+        EntityEntry<ClankMatch> result = await _applicationDbContext.ClankMatch.AddAsync(match);
         await _applicationDbContext.SaveChangesAsync();
 
         return result.Entity;
@@ -31,11 +31,11 @@ public class ClankRepository : IClankRepository
 
     public Task<List<ClankMatch>> Select()
     {
-        return _applicationDbContext.ClankMatches.ToListAsync();
+        return _applicationDbContext.ClankMatch.ToListAsync();
     }
     
     public Task<List<ClankMatch>> SelectById(Guid id)
     {
-        return _applicationDbContext.ClankMatches.Where(m => m.GameId == id).ToListAsync();
+        return _applicationDbContext.ClankMatch.Where(m => m.GameId == id).ToListAsync();
     }
 }
