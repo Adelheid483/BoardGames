@@ -21,8 +21,6 @@ export const Games = () => {
         <GameItem key={index} path={GamePaths[game.gameType]} name={game.name} />
     ));
 
-    console.log(allGames);
-
     return (
         <section className="games-section">
             <Title title={local.ChooseYourGame} />

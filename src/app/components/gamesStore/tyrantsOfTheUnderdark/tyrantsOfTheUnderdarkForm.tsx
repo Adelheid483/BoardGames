@@ -4,16 +4,14 @@ import { TyrantsOfTheUnderdarkMatchModel } from "../../../dataModels/tyrantsOfTh
 import { saveTyrantsOfTheUnderdark } from "../../../api/tyrantsOfTheUnderdarkApi";
 import { getGameMatchInfo } from "../../../api/gamesApi";
 import local from "../../../../static/localization.json";
-import { MenuItem, TextField } from "@mui/material";
-import useAsyncEffect from "use-async-effect";
 import { PlayerModel } from "../../../dataModels/playerModel";
-import { DevTool } from "@hookform/devtools";
-import { getTotalCount } from "../../../helpers/helpers";
+import { getTotalCount, inputValidation } from "../../../helpers/helpers";
 import { Constants } from "../../../../static/constants";
 import { Loader } from "../../common/loader";
 import { ControlsButtons } from "../../common/controlsButtons";
-import { Error } from "../../common/error";
-import { useActions, useTypedSelector } from "../../../helpers/reduxHooks";
+import { PlayerSelect } from "../../common/gameForm/playerSelect";
+import { ValidationMessage } from "../../common/gameForm/validationMessage";
+import { InputForm } from "../../common/gameForm/inputForm";
 
 interface FormModel {
     matches: TyrantsOfTheUnderdarkMatchModel[];
@@ -29,21 +27,10 @@ const defaultMatch = {
     tokens: null as number,
 };
 
-const numberValueValidation = {
-    value: true,
-    message: local.RequiredValue,
-};
-
 export const TyrantsOfTheUnderdarkForm = () => {
-    const players = useTypedSelector((state) => state.players);
-    const { fetchPlayers } = useActions();
     const [player, setPlayer] = useState<PlayerModel>();
     const [totalCount, setTotalCount] = useState<number[]>([]);
     const [loading, setLoading] = useState(false);
-
-    useAsyncEffect(async () => {
-        fetchPlayers();
-    }, []);
 
     const { register, control, handleSubmit, reset, formState } = useForm<FormModel>({
         defaultValues: {
@@ -103,134 +90,55 @@ export const TyrantsOfTheUnderdarkForm = () => {
                         {fields.map((field, index) => (
                             <tr key={field.id}>
                                 <td className="game-match-field">
-                                    <TextField
-                                        select
-                                        label={local.SelectPlayer}
-                                        defaultValue=""
-                                        value={player}
-                                        className="form-control criteria-item ms-2 me-2"
-                                        {...register(`matches.${index}.playerId` as const, {
+                                    <PlayerSelect
+                                        player={player}
+                                        hookForm={register(`matches.${index}.playerId` as const, {
                                             required: {
                                                 value: true,
                                                 message: local.RequiredPlayerName,
                                             },
                                             onChange: (e) => handleChange(e),
                                         })}
-                                    >
-                                        {players.error ? (
-                                            <Error errorMessage={players.error} />
-                                        ) : (
-                                            players.players.map((item) => (
-                                                <MenuItem value={item.id} key={item.id}>
-                                                    {item.name}
-                                                </MenuItem>
-                                            ))
-                                        )}
-                                    </TextField>
-                                    <div className="error-validation">
-                                        {errors.matches?.map(
-                                            (player, idx) => idx === index && player.playerId?.message
-                                        )}
-                                    </div>
+                                    />
+                                    <ValidationMessage criteriaName={"playerId"} index={index} errors={errors} />
                                 </td>
 
-                                <td className="game-match-field">
-                                    <input
-                                        type="number"
-                                        name="controlSites"
-                                        className="form-control criteria-item ms-2 me-2"
-                                        {...register(`matches.${index}.controlSites` as const, {
-                                            valueAsNumber: true,
-                                            required: numberValueValidation,
-                                        })}
-                                    />
-                                    <div className="error-validation">
-                                        {errors.matches?.map(
-                                            (player, idx) => idx === index && player.controlSites?.message
-                                        )}
-                                    </div>
-                                </td>
-
-                                <td className="game-match-field">
-                                    <input
-                                        type="number"
-                                        name="totalControlSites"
-                                        className="form-control criteria-item ms-2 me-2"
-                                        {...register(`matches.${index}.totalControlSites` as const, {
-                                            valueAsNumber: true,
-                                            required: numberValueValidation,
-                                        })}
-                                    />
-                                    <div className="error-validation">
-                                        {errors.matches?.map(
-                                            (player, idx) => idx === index && player.totalControlSites?.message
-                                        )}
-                                    </div>
-                                </td>
-
-                                <td className="game-match-field">
-                                    <input
-                                        type="number"
-                                        name="trophyHall"
-                                        className="form-control criteria-item ms-2 me-2"
-                                        {...register(`matches.${index}.trophyHall` as const, {
-                                            valueAsNumber: true,
-                                            required: numberValueValidation,
-                                        })}
-                                    />
-                                    <div className="error-validation">
-                                        {errors.matches?.map(
-                                            (player, idx) => idx === index && player.trophyHall?.message
-                                        )}
-                                    </div>
-                                </td>
-
-                                <td className="game-match-field">
-                                    <input
-                                        type="number"
-                                        name="deck"
-                                        className="form-control criteria-item ms-2 me-2"
-                                        {...register(`matches.${index}.deck` as const, {
-                                            valueAsNumber: true,
-                                            required: numberValueValidation,
-                                        })}
-                                    />
-                                    <div className="error-validation">
-                                        {errors.matches?.map((player, idx) => idx === index && player.deck?.message)}
-                                    </div>
-                                </td>
-
-                                <td className="game-match-field">
-                                    <input
-                                        type="number"
-                                        name="innerCircleDeck"
-                                        className="form-control criteria-item ms-2 me-2"
-                                        {...register(`matches.${index}.innerCircleDeck` as const, {
-                                            valueAsNumber: true,
-                                            required: numberValueValidation,
-                                        })}
-                                    />
-                                    <div className="error-validation">
-                                        {errors.matches?.map(
-                                            (player, idx) => idx === index && player.innerCircleDeck?.message
-                                        )}
-                                    </div>
-                                </td>
-
-                                <td className="game-match-field">
-                                    <input
-                                        type="number"
-                                        name="tokens"
-                                        className="form-control criteria-item ms-2 me-2"
-                                        {...register(`matches.${index}.tokens` as const, {
-                                            valueAsNumber: true,
-                                            required: numberValueValidation,
-                                        })}
-                                    />
-                                    <div className="error-validation">
-                                        {errors.matches?.map((player, idx) => idx === index && player.tokens?.message)}
-                                    </div>
-                                </td>
+                                <InputForm
+                                    name={"controlSites"}
+                                    index={index}
+                                    errors={errors}
+                                    hookForm={register(`matches.${index}.controlSites` as const, inputValidation)}
+                                />
+                                <InputForm
+                                    name={"totalControlSites"}
+                                    index={index}
+                                    errors={errors}
+                                    hookForm={register(`matches.${index}.totalControlSites` as const, inputValidation)}
+                                />
+                                <InputForm
+                                    name={"trophyHall"}
+                                    index={index}
+                                    errors={errors}
+                                    hookForm={register(`matches.${index}.trophyHall` as const, inputValidation)}
+                                />
+                                <InputForm
+                                    name={"deck"}
+                                    index={index}
+                                    errors={errors}
+                                    hookForm={register(`matches.${index}.deck` as const, inputValidation)}
+                                />
+                                <InputForm
+                                    name={"innerCircleDeck"}
+                                    index={index}
+                                    errors={errors}
+                                    hookForm={register(`matches.${index}.innerCircleDeck` as const, inputValidation)}
+                                />
+                                <InputForm
+                                    name={"tokens"}
+                                    index={index}
+                                    errors={errors}
+                                    hookForm={register(`matches.${index}.tokens` as const, inputValidation)}
+                                />
 
                                 <td className="game-match-total-count ps-3 criteria-name">
                                     {totalCount.length === 0 && !loading ? (
@@ -246,7 +154,6 @@ export const TyrantsOfTheUnderdarkForm = () => {
                     </tbody>
                 </table>
             </form>
-            <DevTool control={control} />
         </div>
     );
 };
