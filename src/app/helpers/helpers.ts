@@ -23,3 +23,8 @@ export const inputValidation = {
         message: local.RequiredValue,
     },
 };
+
+export const selectValidation = {
+    value: true,
+    message: local.RequiredPlayerName,
+};

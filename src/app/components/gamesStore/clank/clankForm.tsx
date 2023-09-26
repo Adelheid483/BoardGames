@@ -3,17 +3,14 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { ClankMatchModel } from "../../../dataModels/clankMatchModel";
 import { saveClank } from "../../../api/clankApi";
 import { getGameMatchInfo } from "../../../api/gamesApi";
-import local from "../../../../static/localization.json";
 import { PlayerModel } from "../../../dataModels/playerModel";
-import { getTotalCount, inputValidation } from "../../../helpers/helpers";
-import { Constants } from "../../../../static/constants";
-import { Loader } from "../../common/loader";
+import { getTotalCount, inputValidation, selectValidation } from "../../../helpers/helpers";
 import { ControlsButtons } from "../../common/controlsButtons";
 import { PlayerSelect } from "../../common/gameForm/playerSelect";
-import { ValidationMessage } from "../../common/gameForm/validationMessage";
 import { InputForm } from "../../common/gameForm/inputForm";
 import { useToast } from "../../common/toast/useToast";
 import { ToastVariant } from "../../../types/types";
+import { TotalCount } from "../../common/gameForm/totalCount";
 
 interface FormModel {
     matches: ClankMatchModel[];
@@ -95,20 +92,15 @@ export const ClankForm = () => {
                     <tbody className="d-flex">
                         {fields.map((field, index) => (
                             <tr key={field.id}>
-                                <td className="game-match-field">
-                                    <PlayerSelect
-                                        player={player}
-                                        hookForm={register(`matches.${index}.playerId` as const, {
-                                            required: {
-                                                value: true,
-                                                message: local.RequiredPlayerName,
-                                            },
-                                            onChange: (e) => handleChange(e),
-                                        })}
-                                    />
-                                    <ValidationMessage criteriaName={"playerId"} index={index} errors={errors} />
-                                </td>
-
+                                <PlayerSelect
+                                    player={player}
+                                    index={index}
+                                    errors={errors}
+                                    hookForm={register(`matches.${index}.playerId` as const, {
+                                        required: selectValidation,
+                                        onChange: (e) => handleChange(e),
+                                    })}
+                                />
                                 <InputForm
                                     name={"artefacts"}
                                     index={index}
@@ -139,16 +131,7 @@ export const ClankForm = () => {
                                     errors={errors}
                                     hookForm={register(`matches.${index}.coins` as const, inputValidation)}
                                 />
-
-                                <td className="game-match-total-count ps-3 criteria-name">
-                                    {totalCount.length === 0 && !loading ? (
-                                        Constants.emptyString
-                                    ) : loading ? (
-                                        <Loader loading={loading} />
-                                    ) : (
-                                        totalCount[index]
-                                    )}
-                                </td>
+                                <TotalCount totalCount={totalCount} index={index} loading={loading} />
                             </tr>
                         ))}
                     </tbody>
