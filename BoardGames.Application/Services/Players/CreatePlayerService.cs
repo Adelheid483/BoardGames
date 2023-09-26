@@ -1,18 +1,18 @@
 ﻿using AutoMapper;
 using BoardGames.Application.Common;
 using BoardGames.Application.Interfaces.Repositories;
-using BoardGames.Application.Interfaces.Services;
+using BoardGames.Application.Interfaces.Services.Players;
 using BoardGames.Domain.DataModels;
 using BoardGames.Domain.Entities;
 
-namespace BoardGames.Application.Services;
+namespace BoardGames.Application.Services.Players;
 
-public class PlayersService : IPlayersService
+public class CreatePlayerService : ICreatePlayerService
 {
     private readonly IPlayerRepository _playerRepository;
     private readonly IMapper _mapper;
 
-    public PlayersService(
+    public CreatePlayerService(
         IPlayerRepository playerRepository,
         IMapper mapper)
     {
@@ -35,12 +35,5 @@ public class PlayersService : IPlayersService
         await _playerRepository.Add(player);
         
         return await ResultBuilder.BuildSucceed();
-    }
-    
-    public async Task<List<PlayerModel>> Get()
-    {
-        var players = await _playerRepository.Select();
-        
-        return _mapper.Map<List<PlayerModel>>(players).OrderBy(player => player.Name).ToList();
     }
 }

@@ -9,28 +9,28 @@ namespace BoardGames.Controllers;
 [ApiController]
 public class GamesController : ControllerBase
 {
-    private readonly IGamesService _gamesService;
-    private readonly IGameMatchesService _gameMatchesService;
+    private readonly IGetGamesService _getGamesService;
+    private readonly IGetGameMatchesService _getGameMatchesService;
 
     public GamesController(
-        IGamesService gamesService,
-        IGameMatchesService gameMatchesService)
+        IGetGamesService getGamesService,
+        IGetGameMatchesService getGameMatchesService)
     {
-        _gamesService = gamesService;
-        _gameMatchesService = gameMatchesService;
+        _getGamesService = getGamesService;
+        _getGameMatchesService = getGameMatchesService;
     }
 
     [HttpGet]
     [ApiRoute(Routes.Games.List)]
     public Task<List<GameModel>> GetGames()
     {
-        return _gamesService.Get();
+        return _getGamesService.Get();
     }
     
     [HttpGet]
     [ApiRoute(Routes.Games.MatchInfo)]
     public Task<GameMatchInfoModel> GetGameMatchInfo()
     {
-        return _gameMatchesService.Get();
+        return _getGameMatchesService.Get();
     }
 }

@@ -1,11 +1,9 @@
 ﻿using BoardGames.Application.Common;
 using BoardGames.Domain.DataModels;
 
-namespace BoardGames.Application.Interfaces.Services;
+namespace BoardGames.Application.Interfaces.Services.Players;
 
-public interface IPlayersService
+public interface ICreatePlayerService
 {
     Task<Result> Create(PlayerCreateModel model);
-
-    Task<List<PlayerModel>> Get();
 }

@@ -1,5 +1,5 @@
 ﻿using BoardGames.Application.Common;
-using BoardGames.Application.Interfaces.Services;
+using BoardGames.Application.Interfaces.Services.Players;
 using BoardGames.Constants;
 using BoardGames.Controllers.Attributes;
 using BoardGames.Domain.DataModels;
@@ -10,24 +10,26 @@ namespace BoardGames.Controllers;
 [ApiController]
 public class PlayersController : ControllerBase
 {
-    private readonly IPlayersService _playersService;
+    private readonly ICreatePlayerService _createPlayerService;
+    private readonly IGetPlayersService _getPlayersService;
 
-    public PlayersController(IPlayersService playersService)
+    public PlayersController(ICreatePlayerService createPlayerService, IGetPlayersService getPlayersService)
     {
-        _playersService = playersService;
+        _createPlayerService = createPlayerService;
+        _getPlayersService = getPlayersService;
     }
 
     [HttpPost]
     [ApiRoute(Routes.Players.Create)]
     public async Task<Result> CreateNewPlayer([FromForm] PlayerCreateModel model)
     {
-        return await _playersService.Create(model);
+        return await _createPlayerService.Create(model);
     }
     
     [HttpGet]
     [ApiRoute(Routes.Players.List)]
     public Task<List<PlayerModel>> GetPlayers()
     {
-        return _playersService.Get();
+        return _getPlayersService.Get();
     }
 }

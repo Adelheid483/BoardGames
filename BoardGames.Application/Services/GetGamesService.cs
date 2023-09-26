@@ -5,12 +5,12 @@ using BoardGames.Domain.DataModels;
 
 namespace BoardGames.Application.Services;
 
-public class GamesService : IGamesService
+public class GetGamesService : IGetGamesService
 {
     private readonly IGameRepository _gameRepository;
     private readonly IMapper _mapper;
 
-    public GamesService(
+    public GetGamesService(
         IGameRepository gameRepository,
         IMapper mapper)
     {

@@ -2,7 +2,7 @@
 
 namespace BoardGames.Application.Interfaces.Services;
 
-public interface IGameMatchesService
+public interface IGetGameMatchesService
 {
     Task<GameMatchInfoModel> Get();
 }

@@ -3,7 +3,7 @@ using BoardGames.Domain.DataModels;
 
 namespace BoardGames.Application.Services;
 
-public class GameMatchesService : IGameMatchesService
+public class GetGameMatchesService : IGetGameMatchesService
 {
     public Task<GameMatchInfoModel> Get()
     {

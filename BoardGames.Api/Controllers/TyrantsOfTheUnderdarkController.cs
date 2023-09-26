@@ -1,4 +1,4 @@
-﻿using BoardGames.Application.Interfaces.Services;
+﻿using BoardGames.Application.Interfaces.Services.GamesStore.TyrantsOfTheUnderdark;
 using BoardGames.Constants;
 using BoardGames.Controllers.Attributes;
 using BoardGames.Domain.DataModels;
@@ -10,18 +10,18 @@ namespace BoardGames.Controllers;
 [ApiController]
 public class TyrantsOfTheUnderdarkController : ControllerBase
 {
-    private readonly ITyrantsOfTheUnderdarkService _tyrantsOfTheUnderdarkService;
+    private readonly ISaveTyrantsOfTheUnderdarkMatchService _saveTyrantsOfTheUnderdarkMatchService;
 
     public TyrantsOfTheUnderdarkController(
-        ITyrantsOfTheUnderdarkService tyrantsOfTheUnderdarkService)
+        ISaveTyrantsOfTheUnderdarkMatchService saveTyrantsOfTheUnderdarkMatchService)
     {
-        _tyrantsOfTheUnderdarkService = tyrantsOfTheUnderdarkService;
+        _saveTyrantsOfTheUnderdarkMatchService = saveTyrantsOfTheUnderdarkMatchService;
     }
 
     [HttpPost]
     [ApiRoute(Routes.TyrantsOfTheUnderdark.Save)]
     public async Task<TyrantsOfTheUnderdarkMatch> SaveTyrantsOfTheUnderdark([FromForm] TyrantsOfTheUnderdarkSaveModel model)
     {
-        return await _tyrantsOfTheUnderdarkService.Save(model);
+        return await _saveTyrantsOfTheUnderdarkMatchService.Save(model);
     }
 }

@@ -1,4 +1,4 @@
-﻿using BoardGames.Application.Interfaces.Services;
+﻿using BoardGames.Application.Interfaces.Services.GamesStore.Clank;
 using BoardGames.Constants;
 using BoardGames.Controllers.Attributes;
 using BoardGames.Domain.DataModels;
@@ -10,18 +10,18 @@ namespace BoardGames.Controllers;
 [ApiController]
 public class ClankController : ControllerBase
 {
-    private readonly IClankService _clankService;
+    private readonly ISaveClankMatchService _saveClankMatchService;
 
     public ClankController(
-        IClankService clankService)
+        ISaveClankMatchService saveClankMatchService)
     {
-        _clankService = clankService;
+        _saveClankMatchService = saveClankMatchService;
     }
 
     [HttpPost]
     [ApiRoute(Routes.Clank.Save)]
     public async Task<ClankMatch> SaveClank([FromForm] ClankSaveModel model)
     {
-        return await _clankService.Save(model);
+        return await _saveClankMatchService.Save(model);
     }
 }

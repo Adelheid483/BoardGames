@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
 using BoardGames.Application.Interfaces.Repositories;
-using BoardGames.Application.Interfaces.Services;
+using BoardGames.Application.Interfaces.Services.GamesStore.Clank;
 using BoardGames.Domain.DataModels;
 using BoardGames.Domain.Entities;
 
-namespace BoardGames.Application.Services;
+namespace BoardGames.Application.Services.GamesStore.Clank;
 
-public class ClankService : IClankService
+public class SaveClankMatchService : ISaveClankMatchService
 {
     private readonly IClankRepository _clankRepository;
     private readonly IMapper _mapper;
 
-    public ClankService(
+    public SaveClankMatchService(
         IMapper mapper,
         IClankRepository clankRepository)
     {
