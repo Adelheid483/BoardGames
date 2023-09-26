@@ -4,7 +4,7 @@ import { ToastVariant } from "../../../types/types";
 
 interface ToastModel {
     variant: ToastVariant;
-    text: string;
+    text?: string;
 }
 
 export function useToast() {

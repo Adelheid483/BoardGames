@@ -12,6 +12,8 @@ import { ControlsButtons } from "../../common/controlsButtons";
 import { PlayerSelect } from "../../common/gameForm/playerSelect";
 import { ValidationMessage } from "../../common/gameForm/validationMessage";
 import { InputForm } from "../../common/gameForm/inputForm";
+import { useToast } from "../../common/toast/useToast";
+import { ToastVariant } from "../../../types/types";
 
 interface FormModel {
     matches: ClankMatchModel[];
@@ -30,6 +32,7 @@ export const ClankForm = () => {
     const [player, setPlayer] = useState<PlayerModel>();
     const [totalCount, setTotalCount] = useState<number[]>([]);
     const [loading, setLoading] = useState(false);
+    const { notificationsToasts, createToast } = useToast();
 
     const { register, control, handleSubmit, reset, formState } = useForm<FormModel>({
         defaultValues: {
@@ -43,6 +46,8 @@ export const ClankForm = () => {
     });
 
     const { errors } = formState;
+
+    const showToast = (variant: ToastVariant) => createToast({ variant });
 
     const onSubmit = async (data: FormModel) => {
         setLoading(true);
@@ -63,6 +68,7 @@ export const ClankForm = () => {
 
         setTotalCount([...totalSum]);
         setLoading(false);
+        showToast("success");
     };
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -84,6 +90,7 @@ export const ClankForm = () => {
                     removeHandler={() => remove(fields.length - 1)}
                     fieldsLength={fields.length}
                 />
+                {notificationsToasts}
                 <table className="table table-striped">
                     <tbody className="d-flex">
                         {fields.map((field, index) => (
