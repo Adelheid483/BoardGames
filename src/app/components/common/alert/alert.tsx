@@ -3,22 +3,22 @@ import local from "../../../../static/localization.json";
 import CheckCircleOutlineRoundedIcon from "@mui/icons-material/CheckCircleOutlineRounded";
 import ErrorOutlineRoundedIcon from "@mui/icons-material/ErrorOutlineRounded";
 import BlockRoundedIcon from "@mui/icons-material/BlockRounded";
-import { ToastVariant } from "../../../types/types";
+import { AlertVariant } from "../../../types/types";
 
-interface ToastProps {
-    variant: ToastVariant;
+interface AlertProps {
+    variant: AlertVariant;
     children: ReactNode;
 }
 
-export function Toast(props: ToastProps) {
+export function Alert(props: AlertProps) {
     const classVariants = {
-        success: "toast-success",
-        warning: "toast-warning",
-        danger: "toast-danger",
+        success: "alert-success",
+        warning: "alert-warning",
+        danger: "alert-danger",
     };
 
     return (
-        <div className={`toast-box ${classVariants[props.variant]}`}>
+        <div className={`alert d-flex align-items-center ${classVariants[props.variant]}`}>
             <span className="me-2">
                 {props.variant === "success" ? (
                     <CheckCircleOutlineRoundedIcon />

@@ -9,19 +9,19 @@ import { PlayerItem } from "./playerItem";
 import { Modal } from "../../common/modal/modal";
 import { Button } from "../../common/button";
 import local from "../../../../static/localization.json";
-import { useToast } from "../../common/toast/useToast";
+import { useAlert } from "../../common/alert/useAlert";
 import { Loader } from "../../common/loader";
-import { ToastVariant } from "../../../types/types";
+import { AlertVariant } from "../../../types/types";
 import { useActions, useTypedSelector } from "../../../helpers/reduxHooks";
 
 export const Players = () => {
     const { players, error, loading } = useTypedSelector((state) => state.players);
     const { fetchPlayers } = useActions();
     const { isOpen, toggle } = useModal();
-    const { notificationsToasts, createToast } = useToast();
+    const { notificationsAlerts, createAlert } = useAlert();
 
-    const showToast = (variant: ToastVariant, message?: string) => {
-        createToast({
+    const showAlert = (variant: AlertVariant, message?: string) => {
+        createAlert({
             text: message,
             variant,
         });
@@ -39,10 +39,10 @@ export const Players = () => {
     const onSubmit = async (data: PlayerCreateModel) => {
         const result = await createNewPlayer(data);
         if (!result.isSucceeded) {
-            showToast("warning", result.error);
+            showAlert("warning", result.error);
         }
         if (result.isSucceeded) {
-            showToast("success");
+            showAlert("success");
         }
     };
 
@@ -71,9 +71,7 @@ export const Players = () => {
                 </form>
                 <Button class="btn-primary" children={local.ShowAll} onClick={loadPlayers} />
             </div>
-
-            {notificationsToasts}
-
+            {notificationsAlerts}
             <Modal
                 isOpen={isOpen}
                 toggle={toggle}

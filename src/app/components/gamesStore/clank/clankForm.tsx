@@ -8,8 +8,8 @@ import { getTotalCount, inputValidation, selectValidation } from "../../../helpe
 import { ControlsButtons } from "../../common/gameForm/controlsButtons";
 import { PlayerSelect } from "../../common/gameForm/playerSelect";
 import { InputForm } from "../../common/gameForm/inputForm";
-import { useToast } from "../../common/toast/useToast";
-import { ToastVariant } from "../../../types/types";
+import { useAlert } from "../../common/alert/useAlert";
+import { AlertVariant } from "../../../types/types";
 import { TotalCount } from "../../common/gameForm/totalCount";
 import { SavedInfo } from "../../common/gameForm/savedInfo";
 
@@ -31,7 +31,7 @@ export const ClankForm = () => {
     const [totalCount, setTotalCount] = useState<number[]>([]);
     const [loading, setLoading] = useState(false);
     const [saveDate, setSaveDate] = useState<Date>();
-    const { notificationsToasts, createToast } = useToast();
+    const { notificationsAlerts, createAlert } = useAlert();
 
     const { register, control, handleSubmit, reset, formState } = useForm<FormModel>({
         defaultValues: {
@@ -46,7 +46,7 @@ export const ClankForm = () => {
 
     const { errors } = formState;
 
-    const showToast = (variant: ToastVariant) => createToast({ variant });
+    const showAlert = (variant: AlertVariant) => createAlert({ variant });
 
     const onSubmit = async (data: FormModel) => {
         setLoading(true);
@@ -68,7 +68,7 @@ export const ClankForm = () => {
         setTotalCount([...totalSum]);
         setLoading(false);
         setSaveDate(new Date(matchInfo.dateMatch));
-        showToast("success");
+        showAlert("success");
     };
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -90,7 +90,7 @@ export const ClankForm = () => {
                     removeHandler={() => remove(fields.length - 1)}
                     fieldsLength={fields.length}
                 />
-                {notificationsToasts}
+                {notificationsAlerts}
                 <table className="table table-striped">
                     <tbody className="d-flex">
                         {fields.map((field, index) => (
