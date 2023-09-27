@@ -36,6 +36,6 @@ public class ClankRepository : IClankRepository
     
     public Task<List<ClankMatch>> SelectById(Guid id)
     {
-        return _applicationDbContext.ClankMatch.Where(m => m.GameId == id).ToListAsync();
+        return _applicationDbContext.ClankMatch.Where(m => m.MatchId == id).ToListAsync();
     }
 }

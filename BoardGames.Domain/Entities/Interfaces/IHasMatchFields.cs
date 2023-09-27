@@ -1,10 +1,10 @@
-﻿namespace BoardGames.Domain.Entities;
+﻿namespace BoardGames.Domain.Entities.Interfaces;
 
 public interface IHasMatchFields
 {
-    public Guid GameId { get; set; }
+    Guid MatchId { get; set; }
     
-    public Guid PlayerId { get; set; }
+    Guid PlayerId { get; set; }
     
-    public DateTime DateMatch { get; set; }
+    DateTime DateMatch { get; set; }
 }

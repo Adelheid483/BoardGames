@@ -36,6 +36,6 @@ public class TyrantsOfTheUnderdarkRepository : ITyrantsOfTheUnderdarkRepository
     
     public Task<List<TyrantsOfTheUnderdarkMatch>> SelectById(Guid id)
     {
-        return _applicationDbContext.TyrantsOfTheUnderdarkMatches.Where(s => s.GameId == id).ToListAsync();
+        return _applicationDbContext.TyrantsOfTheUnderdarkMatches.Where(s => s.MatchId == id).ToListAsync();
     }
 }

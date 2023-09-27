@@ -1,8 +1,9 @@
-﻿namespace BoardGames.Domain.Entities;
+﻿using BoardGames.Domain.Entities.Interfaces;
+namespace BoardGames.Domain.Entities;
 
 public class ClankMatch : Entity, IHasMatchFields
 {
-    public Guid GameId { get; set; }
+    public Guid MatchId { get; set; }
     
     public Guid PlayerId { get; set; }
     
@@ -17,4 +18,6 @@ public class ClankMatch : Entity, IHasMatchFields
     public int Artefacts { get; set; }
     
     public int Tokens { get; set; }
+    
+    public int TotalCount { get; set; }
 }
