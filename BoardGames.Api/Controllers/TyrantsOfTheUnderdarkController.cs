@@ -1,8 +1,9 @@
-﻿using BoardGames.Application.Interfaces.Services.GamesStore.TyrantsOfTheUnderdark;
+﻿using BoardGames.Application.Handlers.GamesStore.TyrantsOfTheUnderdark.SaveTyrantsOfTheUnderdark;
 using BoardGames.Constants;
 using BoardGames.Controllers.Attributes;
 using BoardGames.Domain.DataModels;
 using BoardGames.Domain.Entities;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BoardGames.Controllers;
@@ -10,18 +11,17 @@ namespace BoardGames.Controllers;
 [ApiController]
 public class TyrantsOfTheUnderdarkController : ControllerBase
 {
-    private readonly ISaveTyrantsOfTheUnderdarkMatchService _saveTyrantsOfTheUnderdarkMatchService;
+    private readonly IMediator _mediator;
 
-    public TyrantsOfTheUnderdarkController(
-        ISaveTyrantsOfTheUnderdarkMatchService saveTyrantsOfTheUnderdarkMatchService)
+    public TyrantsOfTheUnderdarkController(IMediator mediator)
     {
-        _saveTyrantsOfTheUnderdarkMatchService = saveTyrantsOfTheUnderdarkMatchService;
+        _mediator = mediator;
     }
 
     [HttpPost]
     [ApiRoute(Routes.TyrantsOfTheUnderdark.Save)]
-    public async Task<TyrantsOfTheUnderdarkMatch> SaveTyrantsOfTheUnderdark([FromForm] TyrantsOfTheUnderdarkSaveModel model)
+    public Task<TyrantsOfTheUnderdarkMatch> SaveTyrantsOfTheUnderdark([FromForm] TyrantsOfTheUnderdarkSaveModel model)
     {
-        return await _saveTyrantsOfTheUnderdarkMatchService.Save(model);
+        return _mediator.Send(new SaveTyrantsOfTheUnderdarkCommand(model));
     }
 }

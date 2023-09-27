@@ -1,8 +1,10 @@
 ﻿using BoardGames.Application.Common;
-using BoardGames.Application.Interfaces.Services.Players;
+using BoardGames.Application.Handlers.Players.CreateNewPlayer;
+using BoardGames.Application.Handlers.Players.GetPlayers;
 using BoardGames.Constants;
 using BoardGames.Controllers.Attributes;
 using BoardGames.Domain.DataModels;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BoardGames.Controllers;
@@ -10,26 +12,24 @@ namespace BoardGames.Controllers;
 [ApiController]
 public class PlayersController : ControllerBase
 {
-    private readonly ICreatePlayerService _createPlayerService;
-    private readonly IGetPlayersService _getPlayersService;
+    private readonly IMediator _mediator;
 
-    public PlayersController(ICreatePlayerService createPlayerService, IGetPlayersService getPlayersService)
+    public PlayersController(IMediator mediator)
     {
-        _createPlayerService = createPlayerService;
-        _getPlayersService = getPlayersService;
+        _mediator = mediator;
     }
 
     [HttpPost]
     [ApiRoute(Routes.Players.Create)]
-    public async Task<Result> CreateNewPlayer([FromForm] PlayerCreateModel model)
+    public Task<Result> CreateNewPlayer([FromForm] PlayerCreateModel model)
     {
-        return await _createPlayerService.Create(model);
+        return _mediator.Send(new CreateNewPlayerCommand(model));
     }
     
     [HttpGet]
     [ApiRoute(Routes.Players.List)]
     public Task<List<PlayerModel>> GetPlayers()
     {
-        return _getPlayersService.Get();
+        return _mediator.Send(new GetPlayersQuery());
     }
 }

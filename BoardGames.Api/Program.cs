@@ -17,8 +17,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(ApplicationMappingProfile));
-builder.Services.InitializeRepositories();
 builder.Services.InitializeServices();
+builder.Services.InitializeRepositories();
+builder.Services.InitializeMediators();
 
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

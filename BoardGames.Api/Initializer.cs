@@ -1,4 +1,5 @@
-﻿using BoardGames.Application.Interfaces.Repositories;
+﻿using BoardGames.Application.Handlers.Players.GetPlayers;
+using BoardGames.Application.Interfaces.Repositories;
 using BoardGames.Application.Interfaces.Services;
 using BoardGames.Application.Interfaces.Services.GamesStore.Clank;
 using BoardGames.Application.Interfaces.Services.GamesStore.TyrantsOfTheUnderdark;
@@ -32,5 +33,12 @@ public static class Initializer
         repositories.AddScoped<IPlayerRepository, PlayerRepository>();
         repositories.AddScoped<ITyrantsOfTheUnderdarkRepository, TyrantsOfTheUnderdarkRepository>();
         repositories.AddScoped<IClankRepository, ClankRepository>();
+    }
+    
+    public static void InitializeMediators(this IServiceCollection mediators)
+    {
+        mediators.AddMediatR(x => x.RegisterServicesFromAssemblies(
+            typeof(GetPlayersQueryHandler).Assembly,
+            typeof(GetPlayersQuery).Assembly));
     }
 }

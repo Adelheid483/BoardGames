@@ -1,8 +1,9 @@
-﻿using BoardGames.Application.Interfaces.Services.GamesStore.Clank;
+﻿using BoardGames.Application.Handlers.GamesStore.Clank.SaveClank;
 using BoardGames.Constants;
 using BoardGames.Controllers.Attributes;
 using BoardGames.Domain.DataModels;
 using BoardGames.Domain.Entities;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BoardGames.Controllers;
@@ -10,18 +11,17 @@ namespace BoardGames.Controllers;
 [ApiController]
 public class ClankController : ControllerBase
 {
-    private readonly ISaveClankMatchService _saveClankMatchService;
+    private readonly IMediator _mediator;
 
-    public ClankController(
-        ISaveClankMatchService saveClankMatchService)
+    public ClankController(IMediator mediator)
     {
-        _saveClankMatchService = saveClankMatchService;
+        _mediator = mediator;
     }
 
     [HttpPost]
     [ApiRoute(Routes.Clank.Save)]
-    public async Task<ClankMatch> SaveClank([FromForm] ClankSaveModel model)
+    public Task<ClankMatch> SaveClank([FromForm] ClankSaveModel model)
     {
-        return await _saveClankMatchService.Save(model);
+        return _mediator.Send(new SaveClankCommand(model));
     }
 }

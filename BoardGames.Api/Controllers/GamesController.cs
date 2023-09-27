@@ -1,7 +1,9 @@
-﻿using BoardGames.Application.Interfaces.Services;
+﻿using BoardGames.Application.Handlers.Games.GetGameMatchInfo;
+using BoardGames.Application.Handlers.Games.GetGames;
 using BoardGames.Constants;
 using BoardGames.Controllers.Attributes;
 using BoardGames.Domain.DataModels;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BoardGames.Controllers;
@@ -9,28 +11,24 @@ namespace BoardGames.Controllers;
 [ApiController]
 public class GamesController : ControllerBase
 {
-    private readonly IGetGamesService _getGamesService;
-    private readonly IGetGameMatchesService _getGameMatchesService;
+    private readonly IMediator _mediator;
 
-    public GamesController(
-        IGetGamesService getGamesService,
-        IGetGameMatchesService getGameMatchesService)
+    public GamesController(IMediator mediator)
     {
-        _getGamesService = getGamesService;
-        _getGameMatchesService = getGameMatchesService;
+        _mediator = mediator;
     }
 
     [HttpGet]
     [ApiRoute(Routes.Games.List)]
     public Task<List<GameModel>> GetGames()
     {
-        return _getGamesService.Get();
+        return _mediator.Send(new GetGamesQuery());
     }
     
     [HttpGet]
     [ApiRoute(Routes.Games.MatchInfo)]
     public Task<GameMatchInfoModel> GetGameMatchInfo()
     {
-        return _getGameMatchesService.Get();
+        return _mediator.Send(new GetGameMatchInfoCommand());
     }
 }
