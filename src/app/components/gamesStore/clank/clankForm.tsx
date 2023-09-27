@@ -5,12 +5,13 @@ import { saveClank } from "../../../api/clankApi";
 import { getGameMatchInfo } from "../../../api/gamesApi";
 import { PlayerModel } from "../../../dataModels/playerModel";
 import { getTotalCount, inputValidation, selectValidation } from "../../../helpers/helpers";
-import { ControlsButtons } from "../../common/controlsButtons";
+import { ControlsButtons } from "../../common/gameForm/controlsButtons";
 import { PlayerSelect } from "../../common/gameForm/playerSelect";
 import { InputForm } from "../../common/gameForm/inputForm";
 import { useToast } from "../../common/toast/useToast";
 import { ToastVariant } from "../../../types/types";
 import { TotalCount } from "../../common/gameForm/totalCount";
+import { SavedInfo } from "../../common/gameForm/savedInfo";
 
 interface FormModel {
     matches: ClankMatchModel[];
@@ -29,6 +30,7 @@ export const ClankForm = () => {
     const [player, setPlayer] = useState<PlayerModel>();
     const [totalCount, setTotalCount] = useState<number[]>([]);
     const [loading, setLoading] = useState(false);
+    const [saveDate, setSaveDate] = useState<Date>();
     const { notificationsToasts, createToast } = useToast();
 
     const { register, control, handleSubmit, reset, formState } = useForm<FormModel>({
@@ -65,6 +67,7 @@ export const ClankForm = () => {
 
         setTotalCount([...totalSum]);
         setLoading(false);
+        setSaveDate(new Date(matchInfo.dateMatch));
         showToast("success");
     };
 
@@ -136,6 +139,7 @@ export const ClankForm = () => {
                         ))}
                     </tbody>
                 </table>
+                <SavedInfo saveDate={saveDate} />
             </form>
         </div>
     );

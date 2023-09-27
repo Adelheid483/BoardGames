@@ -21,12 +21,15 @@
     "EnterName": "Enter name",
     "ErrorLoading": "Oops! Something happened...",
 
+    "MatchNumber": "Match №:",
+
     "ResetMatch": "Reset Match",
     "RemovePlayer": "Remove Player",
     "RequiredPlayerName": "Player name is required",
     "RequiredValue": "Value is required",
 
     "Save": "Save",
+    "SaveDate": "Save date:",
     "ShowAll": "Show All",
     "SelectPlayer": "Select Player",
     "SuccessMessage": "Successfully completed",

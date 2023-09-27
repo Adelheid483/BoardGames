@@ -1,7 +1,7 @@
 import React from "react";
-import local from "../../../static/localization.json";
-import { Button } from "./button";
-import { enableAddBtn, enableRemoveBtn } from "../../helpers/helpers";
+import local from "../../../../static/localization.json";
+import { Button } from "../button";
+import { enableAddBtn, enableRemoveBtn } from "../../../helpers/helpers";
 
 interface Props {
     resetHandler: () => void;

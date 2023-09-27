@@ -16,6 +16,17 @@ export const enableAddBtn = (playersAmount: number) =>
 export const enableRemoveBtn = (playersAmount: number) =>
     playersAmount === Constants.maxNumPlayers || playersAmount > Constants.minNumPlayers;
 
+export const dateFormat = (date: Date): string => {
+    return date.toLocaleString(`en-GB`, {
+        weekday: "long",
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+    });
+};
+
 export const inputValidation = {
     valueAsNumber: true,
     required: {
