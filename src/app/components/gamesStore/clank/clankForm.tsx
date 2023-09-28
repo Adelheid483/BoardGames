@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
-import { ClankMatchModel } from "../../../dataModels/clankMatchModel";
-import { saveClank } from "../../../api/clankApi";
-import { getGameMatchInfo } from "../../../api/gamesApi";
+import { ClankMatchModel } from "../../../dataModels/gamesStore/clank/clankMatchModel";
+import { getClankMatchInfo, saveClank } from "../../../api/clankApi";
 import { PlayerModel } from "../../../dataModels/playerModel";
 import { getTotalCount, inputValidation, selectValidation } from "../../../helpers/helpers";
 import { ControlsButtons } from "../../common/gameForm/controlsButtons";
@@ -31,6 +30,7 @@ export const ClankForm = () => {
     const [totalCount, setTotalCount] = useState<number[]>([]);
     const [loading, setLoading] = useState(false);
     const [saveDate, setSaveDate] = useState<Date>();
+    const [matchOrderNumber, setMatchOrderNumber] = useState<number>();
     const { notificationsAlerts, createAlert } = useAlert();
 
     const { register, control, handleSubmit, reset, formState } = useForm<FormModel>({
@@ -50,7 +50,7 @@ export const ClankForm = () => {
 
     const onSubmit = async (data: FormModel) => {
         setLoading(true);
-        const matchInfo = await getGameMatchInfo();
+        const matchInfo = await getClankMatchInfo();
         const totalSum: number[] = [];
 
         for (const match of data.matches) {
@@ -60,6 +60,7 @@ export const ClankForm = () => {
             await saveClank({
                 ...match,
                 matchId: matchInfo.matchId,
+                matchNumber: matchInfo.matchNumber,
                 dateMatch: matchInfo.dateMatch,
                 totalCount: matchTotal,
             });
@@ -68,6 +69,7 @@ export const ClankForm = () => {
         setTotalCount([...totalSum]);
         setLoading(false);
         setSaveDate(new Date(matchInfo.dateMatch));
+        setMatchOrderNumber(matchInfo.matchNumber);
         showAlert("success");
     };
 
@@ -139,7 +141,7 @@ export const ClankForm = () => {
                         ))}
                     </tbody>
                 </table>
-                <SavedInfo saveDate={saveDate} />
+                <SavedInfo saveDate={saveDate} matchNumber={matchOrderNumber} />
             </form>
         </div>
     );

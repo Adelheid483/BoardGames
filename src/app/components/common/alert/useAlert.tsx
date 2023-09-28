@@ -14,7 +14,7 @@ export function useAlert() {
         setAlertModels([...alertModels, options]);
         setTimeout(() => {
             setAlertModels((item) => item.slice(1));
-        }, 100000);
+        }, 4000);
     };
 
     const alerts = (

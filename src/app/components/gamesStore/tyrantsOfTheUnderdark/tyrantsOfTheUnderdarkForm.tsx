@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
-import { TyrantsOfTheUnderdarkMatchModel } from "../../../dataModels/tyrantsOfTheUnderdarkMatchModel";
-import { saveTyrantsOfTheUnderdark } from "../../../api/tyrantsOfTheUnderdarkApi";
-import { getGameMatchInfo } from "../../../api/gamesApi";
+import { TyrantsOfTheUnderdarkMatchModel } from "../../../dataModels/gamesStore/tyrantsOfTheUnderdark/tyrantsOfTheUnderdarkMatchModel";
+import { getTyrantsOfTheUnderdarkMatchInfo, saveTyrantsOfTheUnderdark } from "../../../api/tyrantsOfTheUnderdarkApi";
 import { PlayerModel } from "../../../dataModels/playerModel";
 import { getTotalCount, inputValidation, selectValidation } from "../../../helpers/helpers";
 import { ControlsButtons } from "../../common/gameForm/controlsButtons";
@@ -32,6 +31,7 @@ export const TyrantsOfTheUnderdarkForm = () => {
     const [totalCount, setTotalCount] = useState<number[]>([]);
     const [loading, setLoading] = useState(false);
     const [saveDate, setSaveDate] = useState<Date>();
+    const [matchOrderNumber, setMatchOrderNumber] = useState<number>();
     const { notificationsAlerts, createAlert } = useAlert();
 
     const { register, control, handleSubmit, reset, formState } = useForm<FormModel>({
@@ -51,7 +51,7 @@ export const TyrantsOfTheUnderdarkForm = () => {
 
     const onSubmit = async (data: FormModel) => {
         setLoading(true);
-        const matchInfo = await getGameMatchInfo();
+        const matchInfo = await getTyrantsOfTheUnderdarkMatchInfo();
         const totalSum: number[] = [];
 
         for (const match of data.matches) {
@@ -61,6 +61,7 @@ export const TyrantsOfTheUnderdarkForm = () => {
             await saveTyrantsOfTheUnderdark({
                 ...match,
                 matchId: matchInfo.matchId,
+                matchNumber: matchInfo.matchNumber,
                 dateMatch: matchInfo.dateMatch,
                 totalCount: matchTotal,
             });
@@ -69,6 +70,7 @@ export const TyrantsOfTheUnderdarkForm = () => {
         setTotalCount([...totalSum]);
         setLoading(false);
         setSaveDate(new Date(matchInfo.dateMatch));
+        setMatchOrderNumber(matchInfo.matchNumber);
         showAlert("success");
     };
 
@@ -146,7 +148,7 @@ export const TyrantsOfTheUnderdarkForm = () => {
                         ))}
                     </tbody>
                 </table>
-                <SavedInfo saveDate={saveDate} />
+                <SavedInfo saveDate={saveDate} matchNumber={matchOrderNumber} />
             </form>
         </div>
     );

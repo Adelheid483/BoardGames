@@ -1,5 +1,5 @@
-import { TyrantsOfTheUnderdarkMatchModel } from "../dataModels/tyrantsOfTheUnderdarkMatchModel";
-import { ClankMatchModel } from "../dataModels/clankMatchModel";
+import { TyrantsOfTheUnderdarkMatchModel } from "../dataModels/gamesStore/tyrantsOfTheUnderdark/tyrantsOfTheUnderdarkMatchModel";
+import { ClankMatchModel } from "../dataModels/gamesStore/clank/clankMatchModel";
 
 // custom types
 export type HttpRequestMethod = "GET" | "POST" | "PUT" | "DELETE";

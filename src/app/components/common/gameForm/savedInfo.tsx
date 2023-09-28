@@ -5,7 +5,7 @@ import { Constants } from "../../../../static/constants";
 
 interface Props {
     saveDate: Date;
-    matchNumber?: number;
+    matchNumber: number;
 }
 
 export const SavedInfo = (props: Props) => {

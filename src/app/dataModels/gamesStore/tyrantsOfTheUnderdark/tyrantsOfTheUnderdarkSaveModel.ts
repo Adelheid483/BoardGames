@@ -2,6 +2,7 @@ import { TyrantsOfTheUnderdarkMatchModel } from "./tyrantsOfTheUnderdarkMatchMod
 
 export interface TyrantsOfTheUnderdarkSaveModel extends TyrantsOfTheUnderdarkMatchModel {
     matchId: string;
+    matchNumber: number;
     dateMatch: Date;
     totalCount: number;
 }
