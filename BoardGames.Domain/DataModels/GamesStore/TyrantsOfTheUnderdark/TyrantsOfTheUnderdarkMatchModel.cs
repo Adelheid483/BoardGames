@@ -1,4 +1,4 @@
-﻿namespace BoardGames.Domain.DataModels;
+﻿namespace BoardGames.Domain.DataModels.GamesStore.TyrantsOfTheUnderdark;
 
 public class TyrantsOfTheUnderdarkMatchModel
 {

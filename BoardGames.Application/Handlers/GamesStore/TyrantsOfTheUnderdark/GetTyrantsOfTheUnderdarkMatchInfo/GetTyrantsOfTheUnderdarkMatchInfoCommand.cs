@@ -1,0 +1,6 @@
+﻿using BoardGames.Domain.DataModels.GamesStore.TyrantsOfTheUnderdark;
+using MediatR;
+
+namespace BoardGames.Application.Handlers.GamesStore.TyrantsOfTheUnderdark.GetTyrantsOfTheUnderdarkMatchInfo;
+
+public record GetTyrantsOfTheUnderdarkMatchInfoCommand : IRequest<TyrantsOfTheUnderdarkMatchInfoModel>;

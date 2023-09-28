@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BoardGames.Application.Interfaces.Repositories;
 using BoardGames.Application.Interfaces.Services.GamesStore.TyrantsOfTheUnderdark;
-using BoardGames.Domain.DataModels;
+using BoardGames.Domain.DataModels.GamesStore.TyrantsOfTheUnderdark;
 using BoardGames.Domain.Entities;
 
 namespace BoardGames.Application.Services.GamesStore.TyrantsOfTheUnderdark;

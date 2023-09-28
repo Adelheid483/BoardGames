@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BoardGames.Application.Interfaces.Repositories;
 using BoardGames.Application.Interfaces.Services.GamesStore.Clank;
-using BoardGames.Domain.DataModels;
+using BoardGames.Domain.DataModels.GamesStore.Clank;
 using BoardGames.Domain.Entities;
 
 namespace BoardGames.Application.Services.GamesStore.Clank;

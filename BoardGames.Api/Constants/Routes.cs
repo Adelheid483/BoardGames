@@ -14,17 +14,19 @@ public static class Routes
     public static class Games
     {
         public const string List = "games/list";
-        
-        public const string MatchInfo = "games/match-info";
     }
     
     public static class TyrantsOfTheUnderdark
     {
         public const string Save = "tyrants-of-the-underdark/save";
+        
+        public const string MatchInfo = "tyrants-of-the-underdark/match-info";
     }
     
     public static class Clank
     {
         public const string Save = "clank/save";
+        
+        public const string MatchInfo = "clank/match-info";
     }
 }

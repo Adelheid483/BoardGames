@@ -1,4 +1,4 @@
-﻿using BoardGames.Domain.DataModels;
+﻿using BoardGames.Domain.DataModels.GamesStore.TyrantsOfTheUnderdark;
 using BoardGames.Domain.Entities;
 using MediatR;
 

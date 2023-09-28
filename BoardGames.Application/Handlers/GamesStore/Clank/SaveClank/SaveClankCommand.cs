@@ -1,4 +1,4 @@
-﻿using BoardGames.Domain.DataModels;
+﻿using BoardGames.Domain.DataModels.GamesStore.Clank;
 using BoardGames.Domain.Entities;
 using MediatR;
 

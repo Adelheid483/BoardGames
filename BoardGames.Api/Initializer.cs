@@ -19,18 +19,23 @@ public static class Initializer
     public static void InitializeServices(this IServiceCollection services)
     {
         services.AddScoped<IGetGamesService, GetGamesService>();
-        services.AddScoped<IGetGameMatchesService, GetGameMatchesService>();
         services.AddScoped<ICreatePlayerService, CreatePlayerService>();
         services.AddScoped<IGetPlayersService, GetPlayersService>();
         services.AddScoped<ISetEntityIdService, SetEntityIdService>();
-        services.AddScoped<ISaveTyrantsOfTheUnderdarkMatchService, SaveTyrantsOfTheUnderdarkMatchService>();
+        
+        // games store
+        services.AddScoped<IGetClankMatchInfoService, GetClankMatchInfoService>();
         services.AddScoped<ISaveClankMatchService, SaveClankMatchService>();
+        services.AddScoped<IGetTyrantsOfTheUnderdarkMatchInfoService, GetTyrantsOfTheUnderdarkMatchInfoService>();
+        services.AddScoped<ISaveTyrantsOfTheUnderdarkMatchService, SaveTyrantsOfTheUnderdarkMatchService>();
     }
     
     public static void InitializeRepositories(this IServiceCollection repositories)
     {
         repositories.AddScoped<IGameRepository, GameRepository>();
         repositories.AddScoped<IPlayerRepository, PlayerRepository>();
+        
+        // games store
         repositories.AddScoped<ITyrantsOfTheUnderdarkRepository, TyrantsOfTheUnderdarkRepository>();
         repositories.AddScoped<IClankRepository, ClankRepository>();
     }

@@ -1,9 +1,8 @@
 ﻿using BoardGames.Domain.DataModels.GamesStore.Clank;
-using BoardGames.Domain.Entities;
 
 namespace BoardGames.Application.Interfaces.Services.GamesStore.Clank;
 
-public interface ISaveClankMatchService
+public interface IGetClankMatchInfoService
 {
-    Task<ClankMatch> Save(ClankSaveModel model);
+    Task<ClankMatchInfoModel> Get();
 }
