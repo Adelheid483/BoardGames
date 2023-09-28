@@ -5,6 +5,8 @@ public class TyrantsOfTheUnderdarkMatch : Entity, IHasMatchFields
 {
     public Guid MatchId { get; set; }
     
+    public int MatchNumber { get; set; }
+
     public Guid PlayerId { get; set; }
     
     public DateTime DateMatch { get; set; }
