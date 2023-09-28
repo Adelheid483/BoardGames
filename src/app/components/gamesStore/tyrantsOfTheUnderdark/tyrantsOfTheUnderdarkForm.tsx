@@ -27,11 +27,11 @@ const defaultMatch = {
 };
 
 export const TyrantsOfTheUnderdarkForm = () => {
-    const [player, setPlayer] = useState<PlayerModel>();
+    const [player, setPlayer] = useState<PlayerModel | null>();
     const [totalCount, setTotalCount] = useState<number[]>([]);
     const [loading, setLoading] = useState(false);
-    const [saveDate, setSaveDate] = useState<Date>();
-    const [matchOrderNumber, setMatchOrderNumber] = useState<number>();
+    const [saveDate, setSaveDate] = useState<Date | null>();
+    const [matchOrderNumber, setMatchOrderNumber] = useState<number | null>();
     const { notificationsAlerts, createAlert } = useAlert();
 
     const { register, control, handleSubmit, reset, formState } = useForm<FormModel>({
@@ -82,6 +82,9 @@ export const TyrantsOfTheUnderdarkForm = () => {
     const resetHandler = () => {
         reset();
         setTotalCount([]);
+        setSaveDate(null);
+        setMatchOrderNumber(null);
+        setPlayer(null)
     };
 
     return (

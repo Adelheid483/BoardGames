@@ -17,7 +17,7 @@ interface FormModel {
 }
 
 const defaultMatch = {
-    playerId: "",
+    playerId: null as string,
     artefacts: null as number,
     prisoners: null as number,
     tokens: null as number,
@@ -26,11 +26,11 @@ const defaultMatch = {
 };
 
 export const ClankForm = () => {
-    const [player, setPlayer] = useState<PlayerModel>();
+    const [player, setPlayer] = useState<PlayerModel | null>();
     const [totalCount, setTotalCount] = useState<number[]>([]);
     const [loading, setLoading] = useState(false);
-    const [saveDate, setSaveDate] = useState<Date>();
-    const [matchOrderNumber, setMatchOrderNumber] = useState<number>();
+    const [saveDate, setSaveDate] = useState<Date | null>();
+    const [matchOrderNumber, setMatchOrderNumber] = useState<number | null>();
     const { notificationsAlerts, createAlert } = useAlert();
 
     const { register, control, handleSubmit, reset, formState } = useForm<FormModel>({
@@ -75,12 +75,15 @@ export const ClankForm = () => {
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         // @ts-ignore
-        setPlayer(event.target.value as string);
+        setPlayer(prevState => prevState, event.target.value as string);
     };
 
     const resetHandler = () => {
         reset();
         setTotalCount([]);
+        setSaveDate(null);
+        setMatchOrderNumber(null);
+        setPlayer(null)
     };
 
     return (
