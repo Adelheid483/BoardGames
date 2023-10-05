@@ -1,4 +1,3 @@
-import React from "react";
 import { Constants } from "../../../../static/constants";
 import { Loader } from "../loader";
 

@@ -5,11 +5,16 @@
         "noImplicitAny": true,
         "module": "ESNext",
         "target": "es6",
-        "jsx": "react",
+        "jsx": "react-jsx",
         "allowJs": true,
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
         "resolveJsonModule": true,
         "esModuleInterop": true
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
     }
 }

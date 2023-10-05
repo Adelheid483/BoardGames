@@ -1,4 +1,3 @@
-import React from "react";
 import { Title } from "../../common/title";
 import { ClankCriteria } from "./clankCriteria";
 import { ClankForm } from "./clankForm";

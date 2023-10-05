@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import { CSSProperties } from "react";
 import BeatLoader from "react-spinners/BeatLoader";
 
 const override: CSSProperties = {

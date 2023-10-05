@@ -1,4 +1,3 @@
-import React from "react";
 import local from "../../../../static/localization.json";
 import { dateFormat } from "../../../helpers/helpers";
 import { Constants } from "../../../../static/constants";

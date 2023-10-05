@@ -1,4 +1,3 @@
-import React from "react";
 import useAsyncEffect from "use-async-effect";
 import { GameItem } from "./gameItem";
 import { GamePaths } from "../../../dictionaries/games";

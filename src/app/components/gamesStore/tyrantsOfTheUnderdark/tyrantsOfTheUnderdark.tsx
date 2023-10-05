@@ -1,4 +1,3 @@
-import React from "react";
 import { Title } from "../../common/title";
 import { TyrantsOfTheUnderdarkCriteria } from "./tyrantsOfTheUnderdarkCriteria";
 import { TyrantsOfTheUnderdarkForm } from "./tyrantsOfTheUnderdarkForm";

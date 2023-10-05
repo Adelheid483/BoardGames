@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { Button } from "../button";
 import { Title } from "../title";
 import local from "../../../../static/localization.json";

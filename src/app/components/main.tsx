@@ -1,4 +1,3 @@
-import React from "react";
 import { Games } from "./main/games/games";
 import { Players } from "./main/players/players";
 

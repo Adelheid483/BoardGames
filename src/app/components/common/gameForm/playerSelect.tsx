@@ -1,4 +1,3 @@
-import React from "react";
 import useAsyncEffect from "use-async-effect";
 import local from "../../../../static/localization.json";
 import { MenuItem, TextField } from "@mui/material";

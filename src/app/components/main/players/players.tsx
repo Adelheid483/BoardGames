@@ -1,4 +1,3 @@
-import React from "react";
 import useAsyncEffect from "use-async-effect";
 import useModal from "../../common/modal/useModal";
 import { Title } from "../../common/title";

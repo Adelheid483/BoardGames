@@ -1,4 +1,3 @@
-import React from "react";
 import local from "../../../../static/localization.json";
 import { Button } from "../button";
 import { enableAddBtn, enableRemoveBtn } from "../../../helpers/helpers";
