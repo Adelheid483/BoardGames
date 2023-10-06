@@ -1,5 +1,4 @@
-﻿using BoardGames.Application.Handlers.Games.GetGameMatchInfo;
-using BoardGames.Application.Handlers.Games.GetGames;
+﻿using BoardGames.Application.Handlers.Games.GetGames;
 using BoardGames.Constants;
 using BoardGames.Controllers.Attributes;
 using BoardGames.Domain.DataModels;
@@ -23,12 +22,5 @@ public class GamesController : ControllerBase
     public Task<List<GameModel>> GetGames()
     {
         return _mediator.Send(new GetGamesQuery());
-    }
-    
-    [HttpGet]
-    [ApiRoute(Routes.Games.MatchInfo)]
-    public Task<GameMatchInfoModel> GetGameMatchInfo()
-    {
-        return _mediator.Send(new GetGameMatchInfoCommand());
     }
 }
