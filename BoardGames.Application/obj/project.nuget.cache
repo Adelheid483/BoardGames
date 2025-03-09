@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "l9esrLIf3o+WCejOrzHLhHxEmk6LYwEXAibnKond55J6CToK0YDsKKv6NtTk+m1nIz/sTnxubhwieMQpzHbfgQ==",
+  "dgSpecHash": "JOWLDirrtPr/LqPr50s6s3NblGRJoSOkN2pO+n9IbuAPJOCLixj/FSP5x9XblVs1BadA3DGWB4/svOD/Y4O7uQ==",
   "success": true,
   "projectFilePath": "D:\\STUDY\\Projects\\BoardGames\\BoardGames.Application\\BoardGames.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alina\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Alina\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\Alina\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
+    "C:\\Users\\Alina\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Alina\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Alina\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\Alina\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",

@@ -150,3 +150,5 @@ E:\АЛИНА\STUDY\Projects\BoardGames\BoardGames.Api\obj\Debug\net6.0\staticwe
 E:\АЛИНА\STUDY\Projects\BoardGames\BoardGames.Api\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BoardGames.Api.props
 E:\АЛИНА\STUDY\Projects\BoardGames\BoardGames.Api\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BoardGames.Api.props
 E:\АЛИНА\STUDY\Projects\BoardGames\BoardGames.Api\obj\Debug\net6.0\staticwebassets.pack.json
+D:\STUDY\Projects\BoardGames\BoardGames.Api\bin\Debug\net6.0\MediatR.dll
+D:\STUDY\Projects\BoardGames\BoardGames.Api\bin\Debug\net6.0\MediatR.Contracts.dll
