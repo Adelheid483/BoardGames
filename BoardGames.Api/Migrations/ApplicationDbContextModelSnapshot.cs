@@ -63,6 +63,53 @@ namespace BoardGames.Migrations
                     b.ToTable("ClankMatch");
                 });
 
+            modelBuilder.Entity("BoardGames.Domain.Entities.FiveTribesMatch", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("CamelTiles")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CastleTiles")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Coins")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateMatch")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Gins")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Market")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("MatchId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("MatchNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PalmTiles")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("WhiteMipples")
+                        .HasColumnType("int");
+
+                    b.Property<int>("YellowMipples")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FiveTribesMatch");
+                });
+
             modelBuilder.Entity("BoardGames.Domain.Entities.Game", b =>
                 {
                     b.Property<Guid>("Id")
@@ -136,35 +183,6 @@ namespace BoardGames.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TyrantsOfTheUnderdarkMatches");
-                });
-
-            modelBuilder.Entity("BoardGames.Domain.Entities.User", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("PasswordChangedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Role")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

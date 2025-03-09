@@ -29,4 +29,11 @@ public static class Routes
         
         public const string MatchInfo = "clank/match-info";
     }
+    
+    public static class FiveTribes
+    {
+        public const string Save = "five-tribes/save";
+        
+        public const string MatchInfo = "five-tribes/match-info";
+    }
 }

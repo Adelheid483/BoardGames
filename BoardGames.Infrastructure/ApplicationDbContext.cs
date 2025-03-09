@@ -9,6 +9,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<Player> Players { get; set; }
     public DbSet<TyrantsOfTheUnderdarkMatch> TyrantsOfTheUnderdarkMatches { get; set; }
     public DbSet<ClankMatch> ClankMatch { get; set; }
+    public DbSet<FiveTribesMatch> FiveTribesMatch { get; set; }
 
     public ApplicationDbContext(DbContextOptions options) : base(options) 
     { 

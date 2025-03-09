@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BoardGames.Domain.DataModels;
 using BoardGames.Domain.DataModels.GamesStore.Clank;
+using BoardGames.Domain.DataModels.GamesStore.FiveTribes;
 using BoardGames.Domain.DataModels.GamesStore.TyrantsOfTheUnderdark;
 using BoardGames.Domain.Entities;
 
@@ -17,5 +18,6 @@ public class ApplicationMappingProfile : Profile
         // games store
         CreateMap<ClankSaveModel, ClankMatch>();
         CreateMap<TyrantsOfTheUnderdarkSaveModel, TyrantsOfTheUnderdarkMatch>();
+        CreateMap<FiveTribesSaveModel, FiveTribesMatch>();
     }
 }

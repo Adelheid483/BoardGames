@@ -2,12 +2,14 @@
 using BoardGames.Application.Interfaces.Repositories;
 using BoardGames.Application.Interfaces.Services;
 using BoardGames.Application.Interfaces.Services.GamesStore.Clank;
+using BoardGames.Application.Interfaces.Services.GamesStore.FiveTribes;
 using BoardGames.Application.Interfaces.Services.GamesStore.TyrantsOfTheUnderdark;
 using BoardGames.Application.Interfaces.Services.Players;
 using BoardGames.Application.Interfaces.Utils;
 using BoardGames.Application.Repositories;
 using BoardGames.Application.Services;
 using BoardGames.Application.Services.GamesStore.Clank;
+using BoardGames.Application.Services.GamesStore.FiveTribes;
 using BoardGames.Application.Services.GamesStore.TyrantsOfTheUnderdark;
 using BoardGames.Application.Services.Players;
 using BoardGames.Application.Utils;
@@ -28,6 +30,8 @@ public static class Initializer
         services.AddScoped<ISaveClankMatchService, SaveClankMatchService>();
         services.AddScoped<IGetTyrantsOfTheUnderdarkMatchInfoService, GetTyrantsOfTheUnderdarkMatchInfoService>();
         services.AddScoped<ISaveTyrantsOfTheUnderdarkMatchService, SaveTyrantsOfTheUnderdarkMatchService>();
+        services.AddScoped<IGetFiveTribesMatchInfoService, GetFiveTribesMatchInfoService>();
+        services.AddScoped<ISaveFiveTribesMatchService, SaveFiveTribesMatchService>();
     }
     
     public static void InitializeRepositories(this IServiceCollection repositories)
@@ -38,6 +42,7 @@ public static class Initializer
         // games store
         repositories.AddScoped<ITyrantsOfTheUnderdarkRepository, TyrantsOfTheUnderdarkRepository>();
         repositories.AddScoped<IClankRepository, ClankRepository>();
+        repositories.AddScoped<IFiveTribesRepository, FiveTribesRepository>();
     }
     
     public static void InitializeMediators(this IServiceCollection mediators)
