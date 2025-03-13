@@ -21,6 +21,19 @@
     "EnterName": "Enter name",
     "ErrorLoading": "Oops! Something happened...",
 
+    "FiveTribesTitle": "5 Tribes",
+    "FiveTribes": {
+        "Coins": "Gold Coins",
+        "YellowMipples": "Yellow Mipples",
+        "WhiteMipples": "White Mipples",
+        "Gins": "Gins",
+        "CamelTiles": "Camel Tiles",
+        "PalmTiles": "Palm Tiles",
+        "CastleTiles": "Castle Tiles",
+        "Market": "Market"
+    },
+
+
     "MatchNumber": "Match №:",
 
     "ResetMatch": "Reset Match",

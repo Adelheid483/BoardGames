@@ -4,7 +4,6 @@ import { GamePaths } from "../../../dictionaries/games";
 import { Title } from "../../common/title";
 import local from "../../../../static/localization.json";
 import { Loader } from "../../common/loader";
-import { fetchGames } from "../../../store/actions/gamesReducerActions";
 import { Error } from "../../common/error";
 import { useActions, useTypedSelector } from "../../../helpers/reduxHooks";
 
@@ -19,6 +18,8 @@ export const Games = () => {
     const allGames = games.map((game, index) => (
         <GameItem key={index} path={GamePaths[game.gameType]} name={game.name} />
     ));
+
+    console.log(games)
 
     return (
         <section className="games-section">
